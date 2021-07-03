@@ -4,6 +4,14 @@ const useStyles = makeStyles((theme: Theme) => ({
   root: {
     padding: theme.spacing(2),
   },
+  textDescription: {
+    justifyContent:'left'
+  },
+  hr: {
+    border:0,
+    height:20,
+    background: 'url("http://lorempixel.com/400/200/sports/") 0 0'
+  },
   card: {
     marginBottom: theme.spacing(2),
     marginTop: theme.spacing(2),

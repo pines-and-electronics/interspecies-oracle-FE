@@ -21,29 +21,36 @@ export default function Adjudication(): ReactElement {
   if (loading || !data || !ships) return <div className="spin"></div>
   return (
     <div className={classes.root}>
-      <Typography variant="h1" align="center">
-        Certify and submit bugs
-      </Typography>
+
+      <p className={classes.textDescription}><span>There are </span> <span>10</span><span> entries in the competition </span></p>
+
+      {/* <hr className={classes.hr} /> */}
+
       {console.log(ships.length)}
       <Grid container className={classes.root} spacing={2}>
-      {ships.map(ship => {
-        console.log(ship?.name)
+        {ships.map(ship => {
+          console.log(ship?.name)
 
-        return (
-          <Grid item xs={12} sm={6} md={3}>
-          <Card className={classes.card}>
-            <CardActionArea>
-              <CardMedia className={classes.media} image={ship?.image || ''} title={ship?.name || ''} />
-              <CardContent>
-                <Typography variant="h4">{ship?.name}</Typography>
-                <Typography variant="body1">{ship?.type}</Typography>
-                <Typography variant="body1">{ship?.weight_kg} kg</Typography>
-              </CardContent>
-            </CardActionArea>
-          </Card>
-          </Grid>
-        )
-      })}
+          return (
+            <Grid item xs={12}>
+              <Card className={classes.card}>
+                <CardActionArea>
+                  {/* <CardMedia className={classes.media} image={ship?.image || ''} title={ship?.name || ''} /> */}
+                  <CardContent>
+                    <div style={{ display: 'flex', flexDirection: 'row', flexFlow: 'row wrap' }}>
+                      <div>1</div>
+                      <div>asdf</div>
+                      <div>asdf</div>
+                    </div>
+                    {/* <Typography variant="h4">{ship?.name}</Typography>
+                    <Typography variant="body1">{ship?.type}</Typography>
+                    <Typography variant="body1">{ship?.weight_kg} kg</Typography> */}
+                  </CardContent>
+                </CardActionArea>
+              </Card>
+            </Grid>
+          )
+        })}
       </Grid>
     </div>
   )
