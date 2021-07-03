@@ -11,7 +11,7 @@ export default function ChooseGame(): ReactElement {
   return (
     <div className={classes.root}>
       <div className={classes.form}>
-        <Button onClick={() => navigate('/adjucation/submissions')}>View & Certify your submissions</Button>
+        <Button onClick={() => navigate('/adjudication/submissions')}>View & Certify your submissions</Button>
         <Button>Enter the contest</Button>
       </div>
     </div>

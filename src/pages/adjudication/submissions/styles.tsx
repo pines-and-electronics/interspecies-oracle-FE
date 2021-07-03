@@ -8,6 +8,9 @@ const useStyles = makeStyles((theme: Theme) => ({
     marginBottom: theme.spacing(2),
     marginTop: theme.spacing(2),
   },
+  gridContainer: {
+    padding: theme.spacing(4),
+  },
   media: {
     height: 180,
   },
