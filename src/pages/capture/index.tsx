@@ -2,26 +2,50 @@ import { Box, Button, Typography } from '@material-ui/core'
 import { PhotoCameraRounded, SendOutlined } from '@material-ui/icons'
 import React, { ReactElement, useState } from 'react'
 import useStyles from './styles'
+
+import CanvasDraw from 'react-canvas-draw'
+
 export default function Capture(): ReactElement {
   const classes = useStyles()
   const [source, setSource] = useState('')
+  const CanvasRef = React.useRef()
+
+  let state = {
+    color: 'red',
+    brushRadius: 10,
+    lazyRadius: 12,
+  }
+
+  const dataRef = React.useRef(localStorage.getItem('drawing') || '{"lines":[]}')
+  const [cacheData, setCacheData] = React.useState(dataRef.current)
+
   const handleCapture = (target: EventTarget & HTMLInputElement) => {
+    setSource('')
     if (target.files) {
       if (target.files.length !== 0) {
         const file = target.files[0]
         const newUrl = URL.createObjectURL(file)
-        setSource(newUrl)
+
+        setTimeout(() => setSource(newUrl), 100)
         console.log(newUrl)
       }
     }
   }
+
   return (
     <div className={classes.root}>
       <Typography variant="h2">Capture a picture</Typography>
       <br />
-      <Box display="flex" justifyContent="center" className={classes.imgBox}>
-        <img src={source} alt={'snap'} className={classes.img}></img>
-      </Box>
+      {source && (
+        <CanvasDraw
+          className={classes.imgBox}
+          immediateLoading={true}
+          brushColor={state.color}
+          brushRadius={state.brushRadius}
+          lazyRadius={state.lazyRadius}
+          imgSrc={source}
+        />
+      )}
 
       <input
         accept="image/*"
@@ -45,7 +69,7 @@ export default function Capture(): ReactElement {
         disabled={!source}
         style={{ marginLeft: '1em' }}
       >
-        Mask Image
+        Upload Image
       </Button>
     </div>
   )
