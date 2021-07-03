@@ -12,10 +12,14 @@ import * as serviceWorkerRegistration from './serviceWorkerRegistration'
 const NotFound = lazy(() => import('./pages/404'))
 const Login = lazy(() => import('./pages/login'))
 const Capture = lazy(() => import('./pages/capture'))
+const SelectGame = lazy(() => import('./pages/selectGame'))
+const SelectGameMode = lazy(() => import('./pages/selectGameMode'))
 const SpaceX = lazy(() => import('./pages/spaceX'))
 const Adjudication = lazy(() => import('./pages/adjudication'))
 const ChooseGame = lazy(() => import('./pages/adjudication/chooseGame'))
 const Submissions = lazy(() => import('./pages/adjudication/submissions'))
+const MetaData = lazy(() => import('./pages/write-metadata'))
+const InfoScreen = lazy(() => import('./pages/info-screen'))
 
 const RouterPage = (props: { pageComponent: ReactElement } & RouteComponentProps) => props.pageComponent
 
@@ -33,6 +37,10 @@ const Application = () => {
               <RouterPage path="/adjudication/submissions" pageComponent={<Submissions />} />
               <RouterPage path="/adjudication/chooseGame" pageComponent={<ChooseGame />} />
               <RouterPage path="/adjudication" pageComponent={<Adjudication />} />
+              <RouterPage path="/write-metadata" pageComponent={<MetaData />} />
+              <RouterPage path="/select-game" pageComponent={<SelectGame />} />
+              <RouterPage path="/info-screen" pageComponent={<InfoScreen />} />
+              <RouterPage path="/select-game-mode" pageComponent={<SelectGameMode />} />
               <RouterPage default pageComponent={<NotFound />} />
             </Router>
           </SnackbarContainer>
