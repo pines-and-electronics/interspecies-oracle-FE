@@ -43,20 +43,30 @@ export default function Login(): ReactElement {
             <p className={classes.textDescription}>The Tree Of Life wishes you to compase a poem to your insect</p>
             <TextField multiline rowsMax={10} {...poemProps} />
             <div style={{ flexDirection: 'row' }}>
-              <div style={{ display:'flex', flexDirection: 'row' }}>
-                <p>GPS Accuracy</p> <p>Test</p>
+              <div style={{ display: 'flex', flexDirection: 'row' }}>
+                <p><span>GPS Accuracy: ±</span><span>40</span>m</p>
               </div>
-              <div>
-                <p className={classes.textDescription}>GPS North</p>
-                <TextField label={"gps-north"} disabled={true} value={"asdf"}/>
+
+              {/* GPS */}
+              <div style={{ display: 'flex', flexDirection: 'row' }}>
+                <div >
+                  <p className={classes.textDescription}>GPS North</p>
+                  <TextField label={"gps-north"} disabled={true} value={"asdf"} />
+                </div>
+                <div>
+                  <p className={classes.textDescription}>GPS East</p>
+                  <TextField label={"gps-east"} disabled={true} value={"asdf"} />
+                </div>
               </div>
-              <p className={classes.textDescription}>GPS East</p>
-              <TextField label={"gps-east"} disabled={true} value={"asdf"}/>
+
             </div>
-            <Button onClick={onSubmit} >submit</Button>
+
+
+            <Button style={{justifyContent: 'center'}} onClick={onSubmit} >submit</Button>
+
           </div>
         </div>
-      </div>
+      </div >
     </div >
   )
 }
