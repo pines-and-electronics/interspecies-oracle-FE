@@ -28,6 +28,7 @@ export default function SelectGame(): ReactElement {
     console.log(game)
     if (game === 'find-bug') navigate('/select-game-mode')
   }
+  
   return (
     <div className={classes.root}>
       <Typography variant='h2' style={{color: 'green'}}> 
@@ -36,9 +37,9 @@ export default function SelectGame(): ReactElement {
       <div className={classes.form}>
         <div className={classes.tribeInfo}>
           <div className={classes.tribeText}>
-            <p className={classes.textDescription}>Your Tribe: { tribe }</p>
-            <p className={classes.textDescription}>Tribe Population: { tribePopulation }</p>
-            <p className={classes.textDescription}>Your Region: { region }</p>
+            <p className={classes.textDescription}>Your Tribe: <b>{ tribe }</b></p>
+            <p className={classes.textDescription}>Tribe Population: <b>{ tribePopulation }</b></p>
+            <p className={classes.textDescription}>Your Region: <b>{ region }</b></p>
           </div>
           <img className={classes.tribeLogo} src={TribeLogo} alt="logo" />
         </div>
