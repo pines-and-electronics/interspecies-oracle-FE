@@ -7,6 +7,10 @@ const useStyles = makeStyles((theme: Theme) => ({
     alignItems: 'center',
     height: '100vh',
   },
+  photo: {
+    height: 200px,
+    width: 200px
+  },
   form: {
     display: 'flex',
     flexDirection: 'column',
