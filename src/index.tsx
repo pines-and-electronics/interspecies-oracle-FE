@@ -13,6 +13,7 @@ const NotFound = lazy(() => import('./pages/404'))
 const Login = lazy(() => import('./pages/login'))
 const Capture = lazy(() => import('./pages/capture'))
 const SpaceX = lazy(() => import('./pages/spaceX'))
+const Adjucation = lazy(() => import('./pages/adjucation'))
 
 const RouterPage = (props: { pageComponent: ReactElement } & RouteComponentProps) => props.pageComponent
 
@@ -27,6 +28,7 @@ const Application = () => {
               <RouterPage path="/" pageComponent={<Login />} />
               <RouterPage path="/capture" pageComponent={<Capture />} />
               <RouterPage path="/spacex" pageComponent={<SpaceX />} />
+              <RouterPage path="/adjucation" pageComponent={<Adjucation />} />
               <RouterPage default pageComponent={<NotFound />} />
             </Router>
           </SnackbarContainer>
