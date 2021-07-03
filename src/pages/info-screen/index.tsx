@@ -1,6 +1,6 @@
-import { Button, TextField } from '@material-ui/core'
+import { Button } from '@material-ui/core'
 import React, { ReactElement } from 'react'
-import { useTextField } from '../../components'
+// import { useTextField } from '../../components'
 import useStyles from './styles'
 // import { useNavigate } from '@reach/router'
 
@@ -11,12 +11,10 @@ import TribeLogo from './tribe.png'
 export default function Login(): ReactElement {
 
   const classes = useStyles()
-  // const navigate = useNavigate()
-  const [name, nameProps] = useTextField('text', 'Name')
-  const [description, descriptionProps] = useTextField('description', 'Description')
-  const [poem, poemProps] = useTextField('text', '10 lines max')
-  const onSubmit = () => {
-    console.log(name, description, poem)
+  const onNewPicture = () => {
+    // navigate('/capture')
+  }
+  const onNextGame = () => {
     // navigate('/capture')
   }
   return (
@@ -32,40 +30,19 @@ export default function Login(): ReactElement {
 
           <img className={classes.photo} src={Photo} alt="logo" />
         </div>
+        <br/>
+        {/* Load poem */}
+        <q className={classes.textPoem}>Oh, bug on a leaf, thine legs are so fuzzy. As the celestial spheres align, I crave your sweet embrace.</q>
 
-        {/* Form entry */}
-        <div>
-          <div className={classes.form}>
-            <p className={classes.textDescription}>Name your bug!</p>
-            <TextField {...nameProps} />
-            <p className={classes.textDescription}>How did you find it?</p>
-            <TextField multiline rowsMax={10} {...descriptionProps} />
-            {/* GPS */}
-            <div style={{ display: 'flex', flexDirection: 'row' }}>
-              <p><span>GPS Accuracy: ±</span><span>40</span>m</p>
-            </div>
-            <div style={{ display: 'flex', flexDirection: 'row' }}>
-              <div >
-                {/* <p className={classes.textDescription}>GPS North</p> */}
-                <TextField label={"gps-north"} disabled={true} value={"52°30'33.211 N"} />
-              </div>
-              <div>
-                {/* <p className={classes.textDescription}>GPS East</p> */}
-                <TextField label={"gps-east"} disabled={true} value={"13°28'10.114 E"} />
-              </div>
-            </div>
-            {/* Poem */}
-            <p className={classes.textDescription}>The Tree Of Life wishes you to compase a poem to your insect</p>
-            <TextField multiline rowsMax={10} {...poemProps} />
-            <div style={{ flexDirection: 'row' }}>
+        {/* Help text */}
+        <p className={classes.textDescription}>Log into the desktop application with your Blockchain ID.</p>
+        <p className={classes.textDescription}>All of your submitted insects are waiting for certification and entry into the game.</p>
 
-
-            </div>
-
-
-            <Button style={{ justifyContent: 'center' }} onClick={onSubmit} >submit</Button>
-
-          </div>
+        {/* Navigation */}
+        <div className={classes.form}>
+          <Button style={{ justifyContent: 'center' }} onClick={onNewPicture} >I found another bug!</Button>
+          <br />
+          <Button style={{ justifyContent: 'center' }} onClick={onNextGame} >Let's play a different game!</Button>
         </div>
       </div >
     </div >

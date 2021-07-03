@@ -30,6 +30,9 @@ const useStyles = makeStyles((theme: Theme) => ({
   textDescription: {
     justifyContent:'left'
   },
+  textPoem: {
+    justifyContent:'center'
+  },
   form: {
     display: 'flex',
     flexDirection: 'column',
