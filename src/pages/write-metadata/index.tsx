@@ -3,7 +3,12 @@ import React, { ReactElement } from 'react'
 import { useTextField } from '../../components'
 import useStyles from './styles'
 import { useNavigate } from '@reach/router'
+
+//TODO: Temp!
+import thisPicture from './mrsquishy.png'
+
 export default function Login(): ReactElement {
+
   const classes = useStyles()
   const navigate = useNavigate()
   const [userId, userIDProps] = useTextField('text', 'UserID')
@@ -14,10 +19,13 @@ export default function Login(): ReactElement {
   }
   return (
     <div className={classes.root}>
-      <div className={classes.form}>
-        <TextField {...userIDProps} />
-        <TextField {...passwordProps} />
-        <Button onClick={onSubmit}>submit</Button>
+      <img src={thisPicture} alt="logo" />
+      <div>
+        <div className={classes.form}>
+          <TextField {...userIDProps} />
+          <TextField {...passwordProps} />
+          <Button onClick={onSubmit}>submit</Button>
+        </div>
       </div>
     </div>
   )

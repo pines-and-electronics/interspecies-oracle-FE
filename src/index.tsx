@@ -28,7 +28,7 @@ const Application = () => {
               <RouterPage path="/" pageComponent={<Login />} />
               <RouterPage path="/capture" pageComponent={<Capture />} />
               <RouterPage path="/spacex" pageComponent={<SpaceX />} />
-              <RouterPage path="/write-metadata" pageComponent={<write-metadata />} />
+              <RouterPage path="/write-metadata" pageComponent={<MetaData />} />
               <RouterPage default pageComponent={<NotFound />} />
             </Router>
           </SnackbarContainer>
