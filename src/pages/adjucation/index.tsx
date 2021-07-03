@@ -18,6 +18,7 @@ export default function Login(): ReactElement {
   const [injectedProvider, setInjectedProvider] = useState<any>();
   const [address, setAddress] = useState<string>();
   const [signer, setSigner] = useState<any>();
+  const [signedIn, setSignedIn] = useState<Boolean>(false);
 
   const web3Modal = new Web3Modal({
     network: "mainnet", // optional
@@ -68,8 +69,14 @@ export default function Login(): ReactElement {
 
   const onSubmit = () => {
     console.log(userId, password)
-    navigate('/capture')
+    setSignedIn(true)
   }
+
+  useEffect(()=> {
+    if (signedIn && injectedProvider) {
+      navigate('/adjucation/chooseGame')
+    }
+  },[signedIn, injectedProvider])
 
   return (
     <div className={classes.root}>
@@ -87,7 +94,7 @@ export default function Login(): ReactElement {
         }
         <TextField {...userIDProps} />
         <TextField {...passwordProps} />
-        <Button onClick={onSubmit}>submit</Button>
+        <Button onClick={onSubmit}>Sign In</Button>
         
         
       </div>
