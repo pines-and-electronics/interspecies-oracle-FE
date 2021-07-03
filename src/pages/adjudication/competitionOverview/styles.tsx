@@ -2,7 +2,7 @@ import { makeStyles, Theme } from '@material-ui/core'
 
 const useStyles = makeStyles((theme: Theme) => ({
   root: {
-    padding: theme.spacing(2),
+    padding: theme.spacing(4),
   },
   textDescription: {
     justifyContent:'left'
@@ -19,6 +19,11 @@ const useStyles = makeStyles((theme: Theme) => ({
   media: {
     height: 180,
   },
+  center: {
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center'
+  }
 }))
 
 export default useStyles
