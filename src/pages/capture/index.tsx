@@ -12,8 +12,6 @@ export default function Capture(): ReactElement {
 
   let state = {
     color: 'red',
-    width: 800,
-    height: 500,
     brushRadius: 10,
     lazyRadius: 12,
   }
@@ -38,19 +36,16 @@ export default function Capture(): ReactElement {
     <div className={classes.root}>
       <Typography variant="h2">Capture a picture</Typography>
       <br />
-      <Box display="flex" justifyContent="center" className={classes.imgBox}>
-        {source && (
-          <CanvasDraw
-            immediateLoading={true}
-            brushColor={state.color}
-            brushRadius={state.brushRadius}
-            lazyRadius={state.lazyRadius}
-            canvasWidth={state.width}
-            canvasHeight={state.height}
-            imgSrc={source}
-          />
-        )}
-      </Box>
+      {source && (
+        <CanvasDraw
+          className={classes.imgBox}
+          immediateLoading={true}
+          brushColor={state.color}
+          brushRadius={state.brushRadius}
+          lazyRadius={state.lazyRadius}
+          imgSrc={source}
+        />
+      )}
 
       <input
         accept="image/*"
@@ -74,7 +69,7 @@ export default function Capture(): ReactElement {
         disabled={!source}
         style={{ marginLeft: '1em' }}
       >
-        Mask Image
+        Upload Image
       </Button>
     </div>
   )
