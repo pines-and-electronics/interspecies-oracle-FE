@@ -1,5 +1,5 @@
 import { createMuiTheme, PaletteType, responsiveFontSizes, Theme } from '@material-ui/core'
-import { primary, primaryGradient, secondary, common, success, warning, error, info } from './colors'
+import { common, error, info, primary, primaryGradient, secondary, success, warning } from './colors'
 
 const fontFamily = ['Open Sans', 'Roboto'].join(',')
 const getTheme = (type: PaletteType = 'light'): Theme => {
@@ -19,7 +19,10 @@ const getTheme = (type: PaletteType = 'light'): Theme => {
         borderRadius: 2.5,
       },
       typography: {
-        fontFamily,
+        fontFamily: [
+          'Open Sans',
+          'Bona Nova'
+        ].join(','),
         fontSize: 12,
         subtitle1: {
           letterSpacing: '1.5px',
