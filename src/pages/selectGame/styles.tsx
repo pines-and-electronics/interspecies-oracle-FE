@@ -1,4 +1,5 @@
 import { makeStyles, Theme } from '@material-ui/core'
+import theme from '../../theme'
 
 const useStyles = makeStyles((theme: Theme) => ({
   root: {
@@ -22,26 +23,48 @@ const useStyles = makeStyles((theme: Theme) => ({
     },
   },
   textDescription: {
-    textAlign: 'right',
+    margin: 0,
+    textAlign: 'left',
   },
   tribeInfo: {
     display: 'flex',
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    padding: theme.spacing(2),
+    flexDirection: 'column',
+    alignContent: 'flex-start',
+    alignItems: 'left',
+    textAlign: 'left',
+    width: "100%",
+    border: '3px solid #2B8C86',
+    background: 'rgba(255, 255, 255, 0.25)',
+    borderRadius: 20,
+    padding: theme.spacing(2)
   },
-  tribeText: {
+  emptyHolder: {
+    width: "100%",
+    height: 75
+  },
+  buttonHolder: {
     display: 'flex',
     flexDirection: 'column',
-    justifyContent: 'center',
+    justifyContent: 'flex-start',
     alignItems: 'center',
     padding: theme.spacing(2),
+    width: "100%",
   },
-  tribeLogo: {
-    padding: theme.spacing(2),
-    height: 200,
-    width: 200,
+  gamesHolder: {
+    width: "100%",
+    display: 'flex',
+    flexDirection: 'row',
+    justifyContent: 'space-evenly',
   },
+  button :{
+    border: '3px solid #2B8C86',
+    background: 'rgba(255, 255, 255, 0.25)',
+    borderRadius: 20,
+  },
+  buttonIcon: {
+    width: "5em", 
+    height: "5em",
+  }
 }))
 
 export default useStyles
