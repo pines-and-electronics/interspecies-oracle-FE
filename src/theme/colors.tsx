@@ -1,15 +1,15 @@
-import { SimplePaletteColorOptions, lighten } from '@material-ui/core'
+import { SimplePaletteColorOptions, lighten, darken } from '@material-ui/core'
 
 export const primary: SimplePaletteColorOptions = {
-  main: '#7047EB',
-  dark: '#482E97',
-  light: '#B29BF4',
+  main: '#2B8C86',
+  dark: darken('#2B8C86', 0.1),
+  light: lighten('#2B8C86', 0.9),
 }
 
 export const secondary: SimplePaletteColorOptions = {
-  main: '#FFCB11',
-  dark: '#A4830B',
-  light: '#FFE37E',
+  main: '#FF9595',
+  dark: darken('#FF9595', 0.1),
+  light: lighten('#FF9595', 0.9),
 }
 
 export const common = {
@@ -33,4 +33,4 @@ export const info: SimplePaletteColorOptions = {
   main: '#3CC13B',
   light: lighten('#3CC13B', 0.9),
 }
-export const primaryGradient = `linear-gradient(45deg, ${primary.main} 30%, ${secondary.main}  90%)`
+export const primaryGradient = `radial-gradient(390.48% 55.17% at 50% 50%, #FF9595 0%, #2B8C86 100%)`

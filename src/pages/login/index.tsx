@@ -10,7 +10,7 @@ export default function Login(): ReactElement {
   const [password, passwordProps] = useTextField('password', 'Password')
   const onSubmit = () => {
     console.log(userId, password)
-    navigate('/capture')
+    navigate('/select-game')
   }
   return (
     <div className={classes.root}>

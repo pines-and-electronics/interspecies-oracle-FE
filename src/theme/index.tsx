@@ -2,7 +2,7 @@ import { createMuiTheme, PaletteType, responsiveFontSizes, Theme } from '@materi
 import { common, error, info, primary, primaryGradient, secondary, success, warning } from './colors'
 
 const fontFamily = ['Open Sans', 'Roboto'].join(',')
-const getTheme = (type: PaletteType = 'light'): Theme => {
+const getTheme = (type: PaletteType = 'dark'): Theme => {
   const theme = responsiveFontSizes(
     createMuiTheme({
       palette: {
@@ -14,15 +14,16 @@ const getTheme = (type: PaletteType = 'light'): Theme => {
         warning,
         error,
         info,
+        background: {
+          default: primaryGradient,
+          paper: '#333333',
+        },
       },
       shape: {
         borderRadius: 2.5,
       },
       typography: {
-        fontFamily: [
-          'Open Sans',
-          'Bona Nova'
-        ].join(','),
+        fontFamily: ['Open Sans', 'Bona Nova'].join(','),
         fontSize: 12,
         subtitle1: {
           letterSpacing: '1.5px',
@@ -49,21 +50,6 @@ const getTheme = (type: PaletteType = 'light'): Theme => {
             padding: '0px',
             paddingRight: '2em',
             paddingLeft: '2em',
-          },
-        },
-        MuiCssBaseline: {
-          '@global': {
-            html: {
-              WebkitFontSmoothing: 'auto',
-              scrollBehavior: 'smooth',
-              fontFamily: fontFamily,
-            },
-            body: {
-              fontFamily: fontFamily,
-              width: '100vw',
-              height: '100vh',
-              boxSizing: 'border-box',
-            },
           },
         },
       },
@@ -125,16 +111,13 @@ const getTheme = (type: PaletteType = 'light'): Theme => {
 
   theme.overrides.MuiButton = {
     root: {
-      color: theme.palette.primary.dark,
       fontSize: '1em',
+      minWidth: '12em',
     },
-    contained: {
-      width: '12em',
-    },
+    contained: {},
 
     outlined: {
       borderWidth: '20px',
-      width: '12em',
     },
   }
 
@@ -148,6 +131,28 @@ const getTheme = (type: PaletteType = 'light'): Theme => {
       paddingBottom: theme.spacing(0.5),
     },
   }
+
+  theme.overrides.MuiCssBaseline = {
+    '@global': {
+      '*': {
+        boxSizing: 'border-box',
+      },
+      html: {
+        WebkitFontSmoothing: 'auto',
+        scrollBehavior: 'smooth',
+        fontFamily: fontFamily,
+        width: '100vw',
+        height: '100vh',
+      },
+      body: {
+        fontFamily: fontFamily,
+        width: '100vw',
+        height: '100vh',
+        background: primaryGradient,
+      },
+    },
+  }
+
   return theme
 }
 

@@ -2,7 +2,7 @@ import { Button, TextField } from '@material-ui/core'
 import React, { ReactElement } from 'react'
 import { useTextField } from '../../components'
 import useStyles from './styles'
-// import { useNavigate } from '@reach/router'
+import { useNavigate } from '@reach/router'
 
 //TODO: Temp!
 import Photo from './mrsquishy.png'
@@ -14,9 +14,12 @@ export default function Login(): ReactElement {
   const [name, nameProps] = useTextField('text', 'Name')
   const [description, descriptionProps] = useTextField('description', 'Description')
   const [poem, poemProps] = useTextField('text', '10 lines max')
+  const navigate = useNavigate()
+
   const onSubmit = () => {
     console.log(name, description, poem)
-    // navigate('/capture')
+
+    navigate('/info-screen')
   }
   return (
     <div className={classes.root}>

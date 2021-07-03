@@ -2,8 +2,9 @@ import { makeStyles, Theme } from '@material-ui/core'
 const placeholderImageURL = 'https://wolper.com.au/wp-content/uploads/2017/10/image-placeholder.jpg'
 const useStyles = makeStyles((theme: Theme) => ({
   root: {
-    height: '100%',
+    height: '100vh',
     textAlign: 'center',
+    width: '100vw',
   },
   imgBox: {
     width: '80vw',

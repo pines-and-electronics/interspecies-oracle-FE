@@ -28,10 +28,10 @@ const useStyles = makeStyles((theme: Theme) => ({
     width: 200,
   },
   textDescription: {
-    justifyContent:'left'
+    justifyContent: 'left',
   },
   textPoem: {
-    justifyContent:'center'
+    justifyContent: 'center',
   },
   form: {
     display: 'flex',

@@ -2,17 +2,17 @@ import { Box, Button, Typography } from '@material-ui/core'
 import { PhotoCameraRounded, SendOutlined } from '@material-ui/icons'
 import React, { ReactElement, useState } from 'react'
 import useStyles from './styles'
-
+import { useNavigate } from '@reach/router'
 import CanvasDraw from 'react-canvas-draw'
 
 export default function Capture(): ReactElement {
   const classes = useStyles()
   const [source, setSource] = useState('')
   const CanvasRef = React.useRef()
-
+  const navigate = useNavigate()
   let state = {
-    color: 'red',
-    brushRadius: 10,
+    color: '#FF9595bb',
+    brushRadius: 15,
     lazyRadius: 12,
   }
 
@@ -68,6 +68,9 @@ export default function Capture(): ReactElement {
         startIcon={<SendOutlined />}
         disabled={!source}
         style={{ marginLeft: '1em' }}
+        onClick={() => {
+          navigate('/write-metadata')
+        }}
       >
         Upload Image
       </Button>

@@ -27,10 +27,11 @@ const RouterPage = (props: { pageComponent: ReactElement } & RouteComponentProps
 const Application = () => {
   return (
     <Suspense fallback={<div className="spin"></div>}>
-      <CssBaseline />
       <ApolloProvider client={client}>
         <ThemeContainer>
           <SnackbarContainer>
+            <CssBaseline />
+
             <Router>
               <RouterPage path="/" pageComponent={<Login />} />
               <RouterPage path="/capture" pageComponent={<Capture />} />

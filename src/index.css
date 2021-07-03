@@ -11,8 +11,8 @@
   animation: 1.5s linear infinite spinner;
   animation-play-state: inherit;
   border: solid 8px transparent;
-  border-bottom-color: #7047eb;
-  border-top-color: #ffcb11;
+  border-bottom-color: #2b8c86;
+  border-top-color: #ff9595;
   border-radius: 50%;
   content: '';
   height: 180px;
