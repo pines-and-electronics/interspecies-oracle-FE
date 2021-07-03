@@ -40,29 +40,30 @@ export default function Login(): ReactElement {
             <TextField {...nameProps} />
             <p className={classes.textDescription}>How did you find it?</p>
             <TextField multiline rowsMax={10} {...descriptionProps} />
+            {/* GPS */}
+            <div style={{ display: 'flex', flexDirection: 'row' }}>
+              <p><span>GPS Accuracy: ±</span><span>40</span>m</p>
+            </div>
+            <div style={{ display: 'flex', flexDirection: 'row' }}>
+              <div >
+                {/* <p className={classes.textDescription}>GPS North</p> */}
+                <TextField label={"gps-north"} disabled={true} value={"52°30'33.211 N"} />
+              </div>
+              <div>
+                {/* <p className={classes.textDescription}>GPS East</p> */}
+                <TextField label={"gps-east"} disabled={true} value={"13°28'10.114 E"} />
+              </div>
+            </div>
+            {/* Poem */}
             <p className={classes.textDescription}>The Tree Of Life wishes you to compase a poem to your insect</p>
             <TextField multiline rowsMax={10} {...poemProps} />
             <div style={{ flexDirection: 'row' }}>
-              <div style={{ display: 'flex', flexDirection: 'row' }}>
-                <p><span>GPS Accuracy: ±</span><span>40</span>m</p>
-              </div>
 
-              {/* GPS */}
-              <div style={{ display: 'flex', flexDirection: 'row' }}>
-                <div >
-                  <p className={classes.textDescription}>GPS North</p>
-                  <TextField label={"gps-north"} disabled={true} value={"asdf"} />
-                </div>
-                <div>
-                  <p className={classes.textDescription}>GPS East</p>
-                  <TextField label={"gps-east"} disabled={true} value={"asdf"} />
-                </div>
-              </div>
 
             </div>
 
 
-            <Button style={{justifyContent: 'center'}} onClick={onSubmit} >submit</Button>
+            <Button style={{ justifyContent: 'center' }} onClick={onSubmit} >submit</Button>
 
           </div>
         </div>
