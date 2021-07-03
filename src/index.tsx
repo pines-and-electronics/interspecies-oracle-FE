@@ -7,7 +7,8 @@ import client from './apollo'
 import { SnackbarContainer, ThemeContainer } from './appContext'
 import './index.css'
 import reportWebVitals from './reportWebVitals'
-import * as serviceWorker from './serviceWorker'
+import * as serviceWorkerRegistration from './serviceWorkerRegistration'
+
 const NotFound = lazy(() => import('./pages/404'))
 const Login = lazy(() => import('./pages/login'))
 const Capture = lazy(() => import('./pages/capture'))
@@ -42,5 +43,5 @@ ReactDOM.render(
 
   document.getElementById('root')
 )
-serviceWorker.register()
+serviceWorkerRegistration.register()
 reportWebVitals(console.log)
