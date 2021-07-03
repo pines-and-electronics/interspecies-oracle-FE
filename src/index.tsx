@@ -12,6 +12,7 @@ import * as serviceWorkerRegistration from './serviceWorkerRegistration'
 const NotFound = lazy(() => import('./pages/404'))
 const Login = lazy(() => import('./pages/login'))
 const Capture = lazy(() => import('./pages/capture'))
+const SelectGame = lazy(() => import('./pages/selectGame'))
 const SpaceX = lazy(() => import('./pages/spaceX'))
 const MetaData = lazy(() => import('./pages/write-metadata'))
 
@@ -29,6 +30,7 @@ const Application = () => {
               <RouterPage path="/capture" pageComponent={<Capture />} />
               <RouterPage path="/spacex" pageComponent={<SpaceX />} />
               <RouterPage path="/write-metadata" pageComponent={<MetaData />} />
+              <RouterPage path="/select-game" pageComponent={<SelectGame />} />
               <RouterPage default pageComponent={<NotFound />} />
             </Router>
           </SnackbarContainer>

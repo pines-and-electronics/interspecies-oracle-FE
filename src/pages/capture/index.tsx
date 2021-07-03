@@ -45,7 +45,7 @@ export default function Capture(): ReactElement {
         disabled={!source}
         style={{ marginLeft: '1em' }}
       >
-        Capture Image
+        Mask Image
       </Button>
     </div>
   )
