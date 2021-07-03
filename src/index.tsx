@@ -15,11 +15,11 @@ const Capture = lazy(() => import('./pages/capture'))
 const SelectGame = lazy(() => import('./pages/selectGame'))
 const SelectGameMode = lazy(() => import('./pages/selectGameMode'))
 const SpaceX = lazy(() => import('./pages/spaceX'))
+const Adjudication = lazy(() => import('./pages/adjudication'))
+const ChooseGame = lazy(() => import('./pages/adjudication/chooseGame'))
+const Submissions = lazy(() => import('./pages/adjudication/submissions'))
 const MetaData = lazy(() => import('./pages/write-metadata'))
 const InfoScreen = lazy(() => import('./pages/info-screen'))
-const Adjucation = lazy(() => import('./pages/adjucation'))
-const ChooseGame = lazy(() => import('./pages/adjucation/chooseGame'))
-const Submissions = lazy(() => import('./pages/adjucation/submissions'))
 
 const RouterPage = (props: { pageComponent: ReactElement } & RouteComponentProps) => props.pageComponent
 
@@ -34,12 +34,12 @@ const Application = () => {
               <RouterPage path="/" pageComponent={<Login />} />
               <RouterPage path="/capture" pageComponent={<Capture />} />
               <RouterPage path="/spacex" pageComponent={<SpaceX />} />
+              <RouterPage path="/adjudication/submissions" pageComponent={<Submissions />} />
+              <RouterPage path="/adjudication/chooseGame" pageComponent={<ChooseGame />} />
+              <RouterPage path="/adjudication" pageComponent={<Adjudication />} />
               <RouterPage path="/write-metadata" pageComponent={<MetaData />} />
               <RouterPage path="/select-game" pageComponent={<SelectGame />} />
               <RouterPage path="/info-screen" pageComponent={<InfoScreen />} />
-              <RouterPage path="/adjucation/submissions" pageComponent={<Submissions />} />
-              <RouterPage path="/adjucation/chooseGame" pageComponent={<ChooseGame />} />
-              <RouterPage path="/adjucation" pageComponent={<Adjucation />} />
               <RouterPage path="/select-game-mode" pageComponent={<SelectGameMode />} />
               <RouterPage default pageComponent={<NotFound />} />
             </Router>

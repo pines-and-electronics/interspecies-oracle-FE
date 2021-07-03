@@ -6,7 +6,7 @@ import { QUERY_ALL_SHIPS } from '../../../graphql/queries'
 import { Ships, Ships_ships } from '../../../graphql/types/Ships'
 import useStyles from './styles'
 
-export default function Adjucation(): ReactElement {
+export default function Adjudication(): ReactElement {
 
   const { data, loading } = useQuery<Ships>(QUERY_ALL_SHIPS, {
     onError: () => {
