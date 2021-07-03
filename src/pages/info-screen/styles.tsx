@@ -31,7 +31,8 @@ const useStyles = makeStyles((theme: Theme) => ({
     justifyContent:'left'
   },
   textPoem: {
-    justifyContent:'center'
+    justifyContent:'center',
+    fontStyle: 'italic'
   },
   form: {
     display: 'flex',

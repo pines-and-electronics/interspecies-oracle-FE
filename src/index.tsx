@@ -15,6 +15,7 @@ const Capture = lazy(() => import('./pages/capture'))
 const SelectGame = lazy(() => import('./pages/selectGame'))
 const SpaceX = lazy(() => import('./pages/spaceX'))
 const MetaData = lazy(() => import('./pages/write-metadata'))
+const InfoScreen = lazy(() => import('./pages/info-screen'))
 
 const RouterPage = (props: { pageComponent: ReactElement } & RouteComponentProps) => props.pageComponent
 
@@ -31,6 +32,7 @@ const Application = () => {
               <RouterPage path="/spacex" pageComponent={<SpaceX />} />
               <RouterPage path="/write-metadata" pageComponent={<MetaData />} />
               <RouterPage path="/select-game" pageComponent={<SelectGame />} />
+              <RouterPage path="/info-screen" pageComponent={<InfoScreen />} />
               <RouterPage default pageComponent={<NotFound />} />
             </Router>
           </SnackbarContainer>
