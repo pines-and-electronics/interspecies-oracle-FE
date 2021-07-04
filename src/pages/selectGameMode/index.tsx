@@ -24,10 +24,10 @@ export default function SelectGameMode(): ReactElement {
     navigate('/adjudication/competition-overview')
   }
 
-  const onAdjudication = () => {
-    console.log('Adjudication')
-    //navigate()
-  }
+  // const onAdjudication = () => {
+  //   console.log('Adjudication')
+  //   //navigate()
+  // }
 
   return (
     <div className={classes.root}>
@@ -47,7 +47,7 @@ export default function SelectGameMode(): ReactElement {
         <div className={classes.buttonHolder}>
           <Button variant="contained" color="primary" className={classes.button} endIcon={<PhotoCameraOutlinedIcon />} onClick={onSubmit}>Submit a Bug</Button>
           <Button variant="contained" color="primary" className={classes.button} endIcon={<AssessmentOutlinedIcon />} onClick={onLeaderboard}>Leaderboard</Button>
-          <Button variant="contained" color="secondary" className={classes.button} onClick={onAdjudication}>Adjudication</Button>
+          {/* <Button variant="contained" color="secondary" className={classes.button} onClick={onAdjudication}>Adjudication</Button> */}
         </div>
       </div>
     </div>
