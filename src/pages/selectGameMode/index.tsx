@@ -34,45 +34,20 @@ export default function SelectGameMode(): ReactElement {
       <div className={classes.form}>
         <div className={classes.textHolder}>
           <p className={classes.textTitle}>The Tree of Life requests offerings!</p>
-          <p className={classes.textDescription}>
-            Insects are a keystone in the natural ecosystem. The Tree of Life has commanded a contest to expand it's
-            knowledge of the insects in the park.
-          </p>
+          <p className={classes.textDescription}>Insects are a keystone in the natural ecosystem. The Tree of Life has commanded a contest to expand it's knowledge of the insects in the park.</p>
         </div>
         <div className={classes.textHolder}>
-          <p className={classes.textTitle}>Contest: {contest}</p>
-          <p className={classes.textDescription}>
-            Certify your pictures of insects, and enter it into the "Coolest Bug of the Week" contest.
-          </p>
+          <p className={classes.textTitle}>Contest: { contest }</p>
+          <p className={classes.textDescription}>Certify your pictures of insects, and enter it into the "Coolest Bug of the Week" contest.</p>
         </div>
         <div className={classes.textHolder}>
-          <p className={classes.textTitle} style={{ fontSize: 'small' }}>
-            Rewards:
-          </p>
-          <ul>{listRewards}</ul>
+          <p className={classes.textTitle}>Rewards:</p>
+          <ul style={{margin: 0}}>{ listRewards }</ul>
         </div>
         <div className={classes.buttonHolder}>
-          <Button
-            variant="contained"
-            color="primary"
-            className={classes.button}
-            endIcon={<PhotoCameraOutlinedIcon />}
-            onClick={onSubmit}
-          >
-            Submit a Bug
-          </Button>
-          <Button
-            variant="contained"
-            color="primary"
-            className={classes.button}
-            endIcon={<AssessmentOutlinedIcon />}
-            onClick={onLeaderboard}
-          >
-            Leaderboard
-          </Button>
-          <Button variant="contained" color="primary" className={classes.button} onClick={onAdjudication}>
-            Adjudication
-          </Button>
+          <Button variant="contained" color="primary" className={classes.button} endIcon={<PhotoCameraOutlinedIcon />} onClick={onSubmit}>Submit a Bug</Button>
+          <Button variant="contained" color="primary" className={classes.button} endIcon={<AssessmentOutlinedIcon />} onClick={onLeaderboard}>Leaderboard</Button>
+          <Button variant="contained" color="secondary" className={classes.button} onClick={onAdjudication}>Adjudication</Button>
         </div>
       </div>
     </div>
