@@ -5,12 +5,12 @@ import useStyles from './styles';
 type SubmisionCardProps = {
   image: string,
   name: string,
-  type: string,
-  weight: number,
+  description: string,
+  // weight: number,
   children: ReactElement
 }
 
-export default function SubmissionCard({image, name, type, weight, children}:SubmisionCardProps): ReactElement {
+export default function SubmissionCard({image, name, description, children}:SubmisionCardProps): ReactElement {
   const classes = useStyles()
 
   return (
@@ -21,8 +21,7 @@ export default function SubmissionCard({image, name, type, weight, children}:Sub
       <Container className={classes.contentContainer}>
         <CardContent className={classes.cardContent}>
           <Typography variant="h4" color='textSecondary'>{name}</Typography>
-          <Typography variant="body1" color='textSecondary'>{type}</Typography>
-          <Typography variant="body1" color='textSecondary'>{weight} kg</Typography>
+          <Typography variant="body1" color='textSecondary'>{description}</Typography>
         </CardContent>
         <Container className={classes.childContainer}>
           {children}
