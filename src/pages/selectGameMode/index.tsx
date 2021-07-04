@@ -21,7 +21,7 @@ export default function SelectGameMode(): ReactElement {
 
   const onLeaderboard = () => {
     console.log('Go to Leaderboard')
-    //navigate()
+    navigate('/adjudication/competition-overview')
   }
 
   const onAdjudication = () => {
