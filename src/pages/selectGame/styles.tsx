@@ -11,6 +11,7 @@ const useStyles = makeStyles((theme: Theme) => ({
   },
   form: {
     display: 'flex',
+    width: '100vw',
     flexDirection: 'column',
     justifyContent: 'space-between',
     // border: '1px solid #3333',
@@ -32,39 +33,39 @@ const useStyles = makeStyles((theme: Theme) => ({
     alignContent: 'flex-start',
     alignItems: 'left',
     textAlign: 'left',
-    width: "100%",
+    width: '100%',
     border: '3px solid #2B8C86',
     background: 'rgba(255, 255, 255, 0.25)',
     borderRadius: 20,
-    padding: theme.spacing(2)
+    padding: theme.spacing(2),
   },
   emptyHolder: {
-    width: "100%",
-    height: 75
+    width: '100%',
+    height: 75,
   },
   buttonHolder: {
     display: 'flex',
     flexDirection: 'column',
     justifyContent: 'flex-start',
     alignItems: 'center',
-    padding: theme.spacing(2),
-    width: "100%",
+    padding: theme.spacing(1),
+    width: '100%',
   },
   gamesHolder: {
-    width: "100%",
+    width: '100%',
     display: 'flex',
     flexDirection: 'row',
     justifyContent: 'space-evenly',
   },
-  button :{
+  button: {
     border: '3px solid #2B8C86',
     background: 'rgba(255, 255, 255, 0.25)',
     borderRadius: 20,
   },
   buttonIcon: {
-    width: "5em", 
-    height: "5em",
-  }
+    width: '5em',
+    height: '5em',
+  },
 }))
 
 export default useStyles

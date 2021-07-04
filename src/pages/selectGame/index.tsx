@@ -16,8 +16,8 @@ export default function SelectGame(): ReactElement {
   const classes = useStyles()
   const navigate = useNavigate()
 
-  const region = "Tiergarten"
-  const tribe = "NgenInfinity"
+  const region = 'Tiergarten'
+  const tribe = 'NgenInfinity'
   const tribePopulation = 21
 
   const handleChange = (game: string) => {
@@ -29,33 +29,39 @@ export default function SelectGame(): ReactElement {
     <div className={classes.root}>
       <div className={classes.form}>
         <div className={classes.tribeInfo}>
-            <p className={classes.textDescription}>Enjoy <b>{ region }</b>!</p>
-            <p className={classes.textDescription}>Your Tribe: <b>{ tribe }</b></p>
-            <p className={classes.textDescription}>Tribe Population: <b>{ tribePopulation }</b></p>
+          <p className={classes.textDescription}>
+            Enjoy <b>{region}</b>!
+          </p>
+          <p className={classes.textDescription}>
+            Your Tribe: <b>{tribe}</b>
+          </p>
+          <p className={classes.textDescription}>
+            Tribe Population: <b>{tribePopulation}</b>
+          </p>
         </div>
-        <div className={classes.emptyHolder}>
-
-        </div>
-        <Typography variant='h5' style={{ marginBottom: 30, color: 'white' }}><b>Select a Game</b></Typography>
+        <div className={classes.emptyHolder}></div>
+        <Typography variant="h5" style={{ marginBottom: 30, color: 'white' }}>
+          <b>Select a Game</b>
+        </Typography>
         <div className={classes.gamesHolder}>
           <div className={classes.buttonHolder}>
             <Button variant="contained" className={classes.button} onClick={() => handleChange('find-bug')}>
               {/* <BugIcon className={classes.buttonIcon}/> */}
-              <img src={BugIcon} alt="Logo" width="100" height="100" />;
+              <img src={BugIcon} alt="Logo" width="90" height="65" />;
             </Button>
-            <p style={{color: 'white', fontSize: '120%'}}>King Of Bugs</p>
+            <p style={{ color: 'white', fontSize: '120%' }}>King Of Bugs</p>
           </div>
           <div className={classes.buttonHolder}>
-            <Button variant="contained" className={classes.button} onClick={() => handleChange("find-mushroom")}>
-              <MushroomIcon className={classes.buttonIcon}/>
+            <Button variant="contained" className={classes.button} onClick={() => handleChange('find-mushroom')}>
+              <MushroomIcon className={classes.buttonIcon} />
             </Button>
-            <p style={{color: 'white', fontSize: '120%'}}>Find a Mushroom</p>
+            <p style={{ color: 'white', fontSize: '120%' }}>Find a Mushroom</p>
           </div>
           <div className={classes.buttonHolder}>
-            <Button variant="contained" className={classes.button} onClick={() => handleChange("cleanup")}>
-              <CleanupIcon className={classes.buttonIcon}/>
+            <Button variant="contained" className={classes.button} onClick={() => handleChange('cleanup')}>
+              <CleanupIcon className={classes.buttonIcon} />
             </Button>
-            <p style={{color: 'white', fontSize: '120%'}}>Cleanup the Park</p>
+            <p style={{ color: 'white', fontSize: '120%' }}>Cleanup the Park</p>
           </div>
         </div>
       </div>
