@@ -1,4 +1,4 @@
-import { Button, Card, CardContent, CardMedia, Container, Typography } from '@material-ui/core';
+import { Card, CardContent, CardMedia, Container, Typography } from '@material-ui/core';
 import React, { ReactElement } from 'react';
 import useStyles from './styles';
 
@@ -6,10 +6,11 @@ type SubmisionCardProps = {
   image: string,
   name: string,
   type: string,
-  weight: number
+  weight: number,
+  children: ReactElement
 }
 
-export default function SubmissionCard({image, name, type, weight}:SubmisionCardProps): ReactElement {
+export default function SubmissionCard({image, name, type, weight, children}:SubmisionCardProps): ReactElement {
   const classes = useStyles()
 
   return (
@@ -19,12 +20,12 @@ export default function SubmissionCard({image, name, type, weight}:SubmisionCard
       </Container>
       <Container className={classes.contentContainer}>
         <CardContent className={classes.cardContent}>
-          <Typography variant="h4">{name}</Typography>
-          <Typography variant="body1">{type}</Typography>
-          <Typography variant="body1">{weight} kg</Typography>
+          <Typography variant="h4" color='textSecondary'>{name}</Typography>
+          <Typography variant="body1" color='textSecondary'>{type}</Typography>
+          <Typography variant="body1" color='textSecondary'>{weight} kg</Typography>
         </CardContent>
-        <Container className={classes.buttonContainer}>
-          <Button variant="outlined" color="primary">Certify</Button>
+        <Container className={classes.childContainer}>
+          {children}
         </Container>
       </Container>
     </Card>

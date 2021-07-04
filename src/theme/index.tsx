@@ -20,6 +20,7 @@ const getTheme = (type: PaletteType = 'dark'): Theme => {
         },
         text: {
           primary: common.white,
+          secondary: '#1b1b1b'
         },
       },
       shape: {
@@ -102,7 +103,7 @@ const getTheme = (type: PaletteType = 'dark'): Theme => {
       color: primary.main,
     },
   }
-
+  
   theme.overrides.MuiAppBar = {
     colorPrimary: {
       backgroundColor: theme.palette.primary.dark,

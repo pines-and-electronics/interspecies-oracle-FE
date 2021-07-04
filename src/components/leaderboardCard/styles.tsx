@@ -50,6 +50,7 @@ const useStyles = makeStyles((theme: Theme) => ({
   poemContainer: {
     textAlign: 'center',
     fontFamily: 'Bona Nova',
+    color: theme.palette.text.secondary,
     whiteSpace: 'pre-line'
   },
   center: {
