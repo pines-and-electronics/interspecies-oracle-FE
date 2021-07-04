@@ -75,7 +75,7 @@ export default function Login(): ReactElement {
 
   useEffect(()=> {
     if (signedIn && injectedProvider) {
-      navigate('/adjucation/chooseGame')
+      navigate('/adjudication/chooseGame')
     }
   },[signedIn, injectedProvider])
 

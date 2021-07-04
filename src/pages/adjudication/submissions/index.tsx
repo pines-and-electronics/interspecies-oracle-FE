@@ -1,5 +1,5 @@
 import { useQuery } from '@apollo/client'
-import { Grid, Typography } from '@material-ui/core'
+import { Button, Grid, Typography } from '@material-ui/core'
 import React, { ReactElement, useState } from 'react'
 import { useSetSnackbar } from '../../../appContext'
 import SubmissionCard from '../../../components/submissionCard'
@@ -34,7 +34,9 @@ export default function Submissions(): ReactElement {
         console.log(ship?.name)
         return (
           <Grid item xs={12} md={6}>
-            <SubmissionCard image={ship?.image || ''} name={ship?.name || ''} type={ship?.type || ''} weight={ship?.weight_kg || 0}/>
+            <SubmissionCard image={ship?.image || ''} name={ship?.name || ''} type={ship?.type || ''} weight={ship?.weight_kg || 0}>
+              <Button variant="outlined" color="primary">Certify</Button>
+            </SubmissionCard>
           </Grid>
         )
       })}

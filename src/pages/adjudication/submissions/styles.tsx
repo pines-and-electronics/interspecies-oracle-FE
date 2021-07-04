@@ -3,6 +3,7 @@ import { makeStyles, Theme } from '@material-ui/core'
 const useStyles = makeStyles((theme: Theme) => ({
   root: {
     padding: theme.spacing(2),
+    margin: theme.spacing(4)
   },
   card: {
     marginBottom: theme.spacing(2),

@@ -11,7 +11,7 @@ type SubmisionCardProps = {
   rank: number
 }
 
-export default function CompetitionCard({image, name, type, weight, likes, rank}:SubmisionCardProps): ReactElement {
+export default function LeaderboardCard({image, name, type, weight, likes, rank}:SubmisionCardProps): ReactElement {
   const classes = useStyles()
 
   return (
@@ -21,9 +21,9 @@ export default function CompetitionCard({image, name, type, weight, likes, rank}
       </Container>
       <Container className={classes.contentContainer}>
         <CardContent className={classes.cardContent}>
-          <Typography variant="h4">{name}</Typography>
-          <Typography variant="body1">{type}</Typography>
-          <Typography variant="body1">{weight} kg</Typography>
+          <Typography variant="h4" color='textSecondary'>{name}</Typography>
+          <Typography variant="body1" color='textSecondary'>{type}</Typography>
+          <Typography variant="body1" color='textSecondary'>{weight} kg</Typography>
         </CardContent>
       </Container>
       <Container className={`${classes.poemContainer} ${classes.center}`}>

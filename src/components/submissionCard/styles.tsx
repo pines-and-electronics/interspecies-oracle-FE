@@ -5,12 +5,12 @@ const useStyles = makeStyles((theme: Theme) => ({
     padding: theme.spacing(2),
   },
   card: {
-    marginBottom: theme.spacing(2),
-    marginTop: theme.spacing(2),
+    margin: 16,
     display: 'flex',
     flexDirection: 'row',
     padding: 24,
-    height: "100%"
+    height: '20em',
+    color: theme.palette.grey[700]
   },
   media: {
     width: 250,
@@ -21,13 +21,14 @@ const useStyles = makeStyles((theme: Theme) => ({
     width: 250,
     margin: 16
   },
-  buttonContainer: {
-
+  childContainer: {
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center'
   },
   contentContainer: {
     display: 'flex',
     flexDirection: 'column',
-    justifyContent: 'space-between'
   }
 }))
 
