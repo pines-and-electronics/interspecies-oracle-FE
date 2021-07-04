@@ -20,6 +20,7 @@ const SelectGameMode = lazy(() => import('./pages/selectGameMode'))
 // const ChooseGame = lazy(() => import('./pages/adjudication/chooseGame'))
 // const CompetitionOverview = lazy(() => import('./pages/adjudication/competitionOverview'))
 // const Submissions = lazy(() => import('./pages/adjudication/submissions'))
+const EnterCompetition = lazy(() => import('./pages/adjudication/enterCompetition'))
 const MetaData = lazy(() => import('./pages/write-metadata'))
 const InfoScreen = lazy(() => import('./pages/info-screen'))
 const GqlTest = lazy(() => import('./pages/gqltest'))
@@ -39,6 +40,7 @@ const Application = () => {
               <RouterPage path="/" pageComponent={<Landing />} />
               <RouterPage path="/login" pageComponent={<Login />} />
               <RouterPage path="/capture" pageComponent={<Capture />} />
+              <RouterPage path="/adjudication/enter-competition" pageComponent={<EnterCompetition />} />
               {/* <RouterPage path="/spacex" pageComponent={<SpaceX />} />
               <RouterPage path="/adjudication/submissions" pageComponent={<Submissions />} />
               <RouterPage path="/adjudication/chooseGame" pageComponent={<ChooseGame />} />
