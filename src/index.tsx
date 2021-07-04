@@ -19,7 +19,7 @@ const SelectGameMode = lazy(() => import('./pages/selectGameMode'))
 // const Adjudication = lazy(() => import('./pages/adjudication'))
 const ChooseGame = lazy(() => import('./pages/adjudication/chooseGame'))
 const CompetitionOverview = lazy(() => import('./pages/adjudication/competitionOverview'))
-// const Submissions = lazy(() => import('./pages/adjudication/submissions'))
+const Submissions = lazy(() => import('./pages/adjudication/submissions'))
 const EnterCompetition = lazy(() => import('./pages/adjudication/enterCompetition'))
 const MetaData = lazy(() => import('./pages/write-metadata'))
 const InfoScreen = lazy(() => import('./pages/info-screen'))
@@ -43,8 +43,8 @@ const Application = () => {
               <RouterPage path="/adjudication/enter-competition" pageComponent={<EnterCompetition />} />
               <RouterPage path="/adjudication/chooseGame" pageComponent={<ChooseGame />} />
               <RouterPage path="/adjudication/competition-overview" pageComponent={<CompetitionOverview />} />
-              {/* <RouterPage path="/spacex" pageComponent={<SpaceX />} />
               <RouterPage path="/adjudication/submissions" pageComponent={<Submissions />} />
+              {/* <RouterPage path="/spacex" pageComponent={<SpaceX />} />
               <RouterPage path="/adjudication/chooseGame" pageComponent={<ChooseGame />} />
               <RouterPage path="/adjudication" pageComponent={<Adjudication />} /> */}
               <RouterPage path="/write-metadata" pageComponent={<MetaData />} />

@@ -2,8 +2,8 @@ import { useQuery } from '@apollo/client'
 import { Button, Grid } from '@material-ui/core'
 import React, { ReactElement, useState } from 'react'
 import SubmissionCard from '../../../components/submissionCard'
-import { getAllSubmissions, getAllSubmissions_submissionMany } from '../../../graphql/types/getAllSubmissions'
 import { QUERY_ALL_Submissions } from '../../../graphql/queries'
+import { getAllSubmissions, getAllSubmissions_submissionMany } from '../../../graphql/types/getAllSubmissions'
 import useStyles from './styles'
 
 export default function CompetitionOverview(): ReactElement {
