@@ -22,6 +22,7 @@ const CompetitionOverview = lazy(() => import('./pages/adjudication/competitionO
 const Submissions = lazy(() => import('./pages/adjudication/submissions'))
 const MetaData = lazy(() => import('./pages/write-metadata'))
 const InfoScreen = lazy(() => import('./pages/info-screen'))
+const Vote = lazy(() => import('./pages/vote'))
 
 const RouterPage = (props: { pageComponent: ReactElement } & RouteComponentProps) => props.pageComponent
 
@@ -46,6 +47,7 @@ const Application = () => {
               <RouterPage path="/select-game" pageComponent={<SelectGame />} />
               <RouterPage path="/info-screen" pageComponent={<InfoScreen />} />
               <RouterPage path="/select-game-mode" pageComponent={<SelectGameMode />} />
+              <RouterPage path="/vote" pageComponent={<Vote />} />
               <RouterPage default pageComponent={<NotFound />} />
             </Router>
           </SnackbarContainer>
