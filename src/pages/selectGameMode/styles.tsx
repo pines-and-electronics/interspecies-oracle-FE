@@ -25,17 +25,18 @@ const useStyles = makeStyles((theme: Theme) => ({
     alignSelf:'stretch',
   },
   textTitle: {
-    fontSize: 'normal',
-    fontWeight: 'bold',
-    overflowWrap: 'break-word',
+    margin: 0,
+    fontSize: "110%",
+    fontWeight: 'bolder',
+    overflowWrap: 'normal',
   },
   textDescription: {
-    fontSize: 'normal',
-    overflowWrap: 'break-word',
+    margin: 0,
+    overflowWrap: 'normal',
   },
   rewardList: {
-    fontSize: 'small',
-    overflowWrap: 'break-word',
+    margin: 0,
+    overflowWrap: 'normal',
   },
   buttonHolder: {
     display: 'flex',
@@ -43,6 +44,7 @@ const useStyles = makeStyles((theme: Theme) => ({
     justifyContent: 'space-between',
   },
   button: {
+    color: 'white',
     margin: theme.spacing(1),
   },
 }))
