@@ -15,7 +15,7 @@ export default function ChooseGame(): ReactElement {
         <br/>
         <Button onClick={() => navigate('/adjudication/competition-overview')}>View leaderboard</Button>
         <br/>
-        <Button>Enter the contest</Button>
+        <Button onClick={() => navigate('/adjudication/enter-competition')}>Enter the contest</Button>
         <br/>
       </div>
     </div>

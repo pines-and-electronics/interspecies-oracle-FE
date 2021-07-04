@@ -24,6 +24,11 @@ export default function SelectGameMode(): ReactElement {
     navigate('/adjudication/competition-overview')
   }
 
+  const onSwipeVote = () => {
+    console.log('Go to Swipe and Vote')
+    //navigate()
+  }
+
   // const onAdjudication = () => {
   //   console.log('Adjudication')
   //   //navigate()
@@ -48,6 +53,7 @@ export default function SelectGameMode(): ReactElement {
           <Button variant="contained" color="primary" className={classes.button} endIcon={<PhotoCameraOutlinedIcon />} onClick={onSubmit}>Submit a Bug</Button>
           <Button variant="contained" color="primary" className={classes.button} endIcon={<AssessmentOutlinedIcon />} onClick={onLeaderboard}>Leaderboard</Button>
           {/* <Button variant="contained" color="secondary" className={classes.button} onClick={onAdjudication}>Adjudication</Button> */}
+          <Button variant="contained" color="primary" className={classes.button} onClick={onSwipeVote}>Swipe and Vote!</Button>
         </div>
       </div>
     </div>

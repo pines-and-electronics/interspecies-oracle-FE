@@ -1,8 +1,9 @@
 import { useQuery } from '@apollo/client'
 import { Button, Grid, Typography } from '@material-ui/core'
+import { useNavigate } from '@reach/router'
 import React, { ReactElement, useState } from 'react'
 import { useSetSnackbar } from '../../../appContext'
-import CompetitionCard from '../../../components/competitionCard'
+import LeaderboardCard from '../../../components/leaderboardCard'
 import { QUERY_ALL_SHIPS } from '../../../graphql/queries'
 import { Ships, Ships_ships } from '../../../graphql/types/Ships'
 import useStyles from './styles'
@@ -14,6 +15,7 @@ export default function CompetitionOverview(): ReactElement {
     },
     onCompleted: shipsData => shipsData && setShips(shipsData.ships),
   })
+  const navigate = useNavigate()
 
   const { handleSnackbarSet } = useSetSnackbar()
   const [ships, setShips] = useState<(Ships_ships | null)[] | null>([])
@@ -24,9 +26,9 @@ export default function CompetitionOverview(): ReactElement {
 
       <p className={classes.textDescription}><span>There are </span> <span>10</span><span> entries in the competition </span></p>
       <div className={classes.center}>
-        <Button variant="outlined" color="primary" style={{width: '20em'}}>Enter the Contest</Button>
+        <Button onClick={() => navigate('/adjudication/enter-competition')} color="secondary" style={{width: '20em'}}>Enter the Contest</Button>
       </div>
-      <div style={{borderBottom: '1px solid black', margin: '16px 0', padding: 8}} className={classes.center}>
+      <div style={{borderBottom: '1px solid white', margin: '16px 0', padding: 8}} className={classes.center}>
         <Typography variant="h4">Leaderboard</Typography>
       </div>
       {/* <hr className={classes.hr} /> */}
@@ -36,7 +38,7 @@ export default function CompetitionOverview(): ReactElement {
         {ships.map((ship, i) => {
           return (
             <Grid item xs={12} style={{margin: "16px 0"}}>
-              <CompetitionCard image={ship?.image || ''} name={ship?.name || ''} type={ship?.type || ''} weight={ship?.weight_kg || 0} rank={i} likes={Math.floor(Math.random()*200)} />
+              <LeaderboardCard image={ship?.image || ''} name={ship?.name || ''} type={ship?.type || ''} weight={ship?.weight_kg || 0} rank={i} likes={Math.floor(Math.random()*200)} />
             </Grid>
           )
         })}
