@@ -32,7 +32,7 @@ export default function LeaderboardCard({image, name, description, likes, rank, 
       </Container>
       <Container className={`${classes.rankContainer} ${classes.center}`}>
         <div className={`${classes.rankCircle} ${classes.center}`}>
-          {rank}
+          #{rank}
         </div>
         <div className={classes.likes}>
           {likes} Likes
