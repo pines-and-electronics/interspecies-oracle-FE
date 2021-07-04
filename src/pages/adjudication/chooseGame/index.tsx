@@ -12,7 +12,11 @@ export default function ChooseGame(): ReactElement {
     <div className={classes.root}>
       <div className={classes.form}>
         <Button onClick={() => navigate('/adjudication/submissions')}>View & Certify your submissions</Button>
+        <br/>
+        <Button onClick={() => navigate('/adjudication/competition-overview')}>View leaderboard</Button>
+        <br/>
         <Button>Enter the contest</Button>
+        <br/>
       </div>
     </div>
   )
