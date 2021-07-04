@@ -2,29 +2,31 @@ import { useQuery } from '@apollo/client'
 import { Button, Grid, Typography } from '@material-ui/core'
 import { useNavigate } from '@reach/router'
 import React, { ReactElement, useState } from 'react'
-import { useSetSnackbar } from '../../../appContext'
 import LeaderboardCard from '../../../components/leaderboardCard'
-import { QUERY_ALL_SHIPS } from '../../../graphql/queries'
-import { Ships, Ships_ships } from '../../../graphql/types/Ships'
+import { QUERY_ALL_Submissions } from '../../../graphql/queries'
+import { getAllSubmissions, getAllSubmissions_submissionMany } from '../../../graphql/types/getAllSubmissions'
 import useStyles from './styles'
 
 export default function CompetitionOverview(): ReactElement {
-  const { data, loading } = useQuery<Ships>(QUERY_ALL_SHIPS, {
-    onError: () => {
-      handleSnackbarSet('Something went wrong', 'error')
+  const { data, loading } = useQuery<getAllSubmissions>(QUERY_ALL_Submissions, {
+    onError: err => {
+      console.log(err)
     },
-    onCompleted: shipsData => shipsData && setShips(shipsData.ships),
+    onCompleted: subData => {
+      console.log(subData)
+
+      subData && setSubmissions(subData.submissionMany)
+    },
   })
   const navigate = useNavigate()
 
-  const { handleSnackbarSet } = useSetSnackbar()
-  const [ships, setShips] = useState<(Ships_ships | null)[] | null>([])
+  const [submissions, setSubmissions] = useState<(getAllSubmissions_submissionMany | null)[] | null>([])
   const classes = useStyles()
-  if (loading || !data || !ships) return <div className="spin"></div>
+  if (loading || !data || !submissions) return <div className="spin"></div>
   return (
     <div className={classes.root}>
 
-      <p className={classes.textDescription}><span>There are </span> <span>10</span><span> entries in the competition </span></p>
+      <p className={classes.textDescription}><span>There are </span> <span>{submissions.length}</span><span> entries in the competition </span></p>
       <div className={classes.center}>
         <Button onClick={() => navigate('/adjudication/enter-competition')} color="secondary" style={{width: '20em'}}>Enter the Contest</Button>
       </div>
@@ -33,12 +35,11 @@ export default function CompetitionOverview(): ReactElement {
       </div>
       {/* <hr className={classes.hr} /> */}
 
-      {console.log(ships.length)}
       <Grid container className={classes.root} spacing={2}>
-        {ships.map((ship, i) => {
+        {submissions.map((bug, i) => {
           return (
             <Grid item xs={12} style={{margin: "16px 0"}}>
-              <LeaderboardCard image={ship?.image || ''} name={ship?.name || ''} type={ship?.type || ''} weight={ship?.weight_kg || 0} rank={i} likes={Math.floor(Math.random()*200)} />
+              <LeaderboardCard image={bug?.pictureLink || ''} name={bug?.name || ''} description={bug?.description || ''} rank={i} likes={bug?.votes || 0} poem={bug?.poem || 'No poem written'}/>
             </Grid>
           )
         })}
