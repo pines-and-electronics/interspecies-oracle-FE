@@ -24,7 +24,7 @@ export default function Login(): ReactElement {
     network: "mainnet", // optional
     cacheProvider: true, // optional
     providerOptions: {
-      
+
     } // required
   });
 
@@ -70,6 +70,7 @@ export default function Login(): ReactElement {
   const onSubmit = () => {
     console.log(userId, password)
     setSignedIn(true)
+    navigate('/adjudication/chooseGame')
   }
 
   useEffect(()=> {
@@ -95,8 +96,8 @@ export default function Login(): ReactElement {
         <TextField {...userIDProps} />
         <TextField {...passwordProps} />
         <Button onClick={onSubmit}>Sign In</Button>
-        
-        
+
+
       </div>
     </div>
   )
