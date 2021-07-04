@@ -111,7 +111,7 @@ export default function Capture(): ReactElement {
           const data = canvasRef && canvasRef.getSaveData()
           console.log(data)
 
-          // navigate('/write-metadata')
+          navigate('/write-metadata')
         }}
       >
         Upload Image

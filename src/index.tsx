@@ -23,6 +23,7 @@ const SelectGameMode = lazy(() => import('./pages/selectGameMode'))
 const MetaData = lazy(() => import('./pages/write-metadata'))
 const InfoScreen = lazy(() => import('./pages/info-screen'))
 const GqlTest = lazy(() => import('./pages/gqltest'))
+const Vote = lazy(() => import('./pages/vote'))
 
 const RouterPage = (props: { pageComponent: ReactElement } & RouteComponentProps) => props.pageComponent
 
@@ -48,6 +49,7 @@ const Application = () => {
               <RouterPage path="/info-screen" pageComponent={<InfoScreen />} />
               <RouterPage path="/select-game-mode" pageComponent={<SelectGameMode />} />
               <RouterPage path="/gql" pageComponent={<GqlTest />} />
+              <RouterPage path="/vote" pageComponent={<Vote />} />
               <RouterPage default pageComponent={<NotFound />} />
             </Router>
           </SnackbarContainer>
