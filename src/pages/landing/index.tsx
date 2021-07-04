@@ -3,6 +3,7 @@ import React, { ReactElement } from 'react'
 import { useTextField } from '../../components'
 import useStyles from './styles'
 import { useNavigate } from '@reach/router'
+import LandingImage from './landing.png'
 export default function Login(): ReactElement {
   const classes = useStyles()
   const navigate = useNavigate()
@@ -10,23 +11,18 @@ export default function Login(): ReactElement {
   const [password, passwordProps] = useTextField('password', 'Password')
   const onSubmit = () => {
     console.log(userId, password)
-    navigate('/select-game')
+    navigate('/login')
   }
   return (
     <div className={classes.root}>
-      <div className={classes.form}>
-        <Typography variant="h1">
-          Welcome <br /> back!
-        </Typography>
-        <br />
-        <br />
-        <br />
-        <br />
-        <TextField {...userIDProps} />
-        <TextField {...passwordProps} />
-        <Button fullWidth={true} onClick={onSubmit}>
-          submit
-        </Button>
+      <img className={classes.landingImage} src={LandingImage} alt="logo" />
+      <Typography variant="h1"> Hello!</Typography>
+      <Typography variant="body1">
+        Welcome to Game Of Oracles! Learn <br /> about your environment through <br /> collaboration
+      </Typography>
+      <div className={classes.actionArea}>
+        <Button onClick={onSubmit}>Log In</Button>
+        <Button onClick={onSubmit}>Sign Up</Button>
       </div>
     </div>
   )

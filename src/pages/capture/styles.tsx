@@ -8,7 +8,7 @@ const useStyles = makeStyles((theme: Theme) => ({
   },
   imgBox: {
     width: '80vw',
-    height: '60vh',
+    height: '70vh',
     boxShadow: theme.shadows[10],
     // maxHeight: "80vh",
     margin: 'auto',

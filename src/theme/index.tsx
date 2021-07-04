@@ -18,6 +18,9 @@ const getTheme = (type: PaletteType = 'dark'): Theme => {
           default: primaryGradient,
           paper: '#333333',
         },
+        text: {
+          primary: common.white,
+        },
       },
       shape: {
         borderRadius: 2.5,
@@ -95,6 +98,8 @@ const getTheme = (type: PaletteType = 'dark'): Theme => {
   theme.overrides.MuiInputBase = {
     root: {
       width: '16em',
+      backgroundColor: '#fefefe88',
+      color: primary.main,
     },
   }
 

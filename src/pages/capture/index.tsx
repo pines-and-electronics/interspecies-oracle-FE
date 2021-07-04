@@ -1,4 +1,4 @@
-import { Box, Button, Typography } from '@material-ui/core'
+import { Box, Button, Typography, Slider } from '@material-ui/core'
 import { PhotoCameraRounded, SendOutlined } from '@material-ui/icons'
 import React, { ReactElement, useState } from 'react'
 import useStyles from './styles'
@@ -36,6 +36,7 @@ export default function Capture(): ReactElement {
     <div className={classes.root}>
       <Typography variant="h2">Capture a picture</Typography>
       <br />
+
       {source && (
         <CanvasDraw
           className={classes.imgBox}
@@ -45,6 +46,28 @@ export default function Capture(): ReactElement {
           lazyRadius={state.lazyRadius}
           imgSrc={source}
         />
+      )}
+
+      {!source && (
+        <div>
+          <Typography variant="h3">Draw mask using your fingers</Typography>
+
+          <div style={{ width: '50em' }}>
+            <Typography id="discrete-slider" gutterBottom>
+              Pen Size
+            </Typography>
+            <Slider
+              defaultValue={30}
+              aria-labelledby="discrete-slider"
+              valueLabelDisplay="auto"
+              color="secondary"
+              step={2}
+              marks
+              min={2}
+              max={50}
+            />
+          </div>
+        </div>
       )}
 
       <input

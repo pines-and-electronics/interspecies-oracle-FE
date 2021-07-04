@@ -11,6 +11,7 @@ import * as serviceWorkerRegistration from './serviceWorkerRegistration'
 
 const NotFound = lazy(() => import('./pages/404'))
 const Login = lazy(() => import('./pages/login'))
+const Landing = lazy(() => import('./pages/landing'))
 const Capture = lazy(() => import('./pages/capture'))
 const SelectGame = lazy(() => import('./pages/selectGame'))
 const SelectGameMode = lazy(() => import('./pages/selectGameMode'))
@@ -33,7 +34,8 @@ const Application = () => {
             <CssBaseline />
 
             <Router>
-              <RouterPage path="/" pageComponent={<Login />} />
+              <RouterPage path="/" pageComponent={<Landing />} />
+              <RouterPage path="/login" pageComponent={<Login />} />
               <RouterPage path="/capture" pageComponent={<Capture />} />
               <RouterPage path="/spacex" pageComponent={<SpaceX />} />
               <RouterPage path="/adjudication/submissions" pageComponent={<Submissions />} />
