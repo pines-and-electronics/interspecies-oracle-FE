@@ -7,6 +7,7 @@ const useStyles = makeStyles((theme: Theme) => ({
   card: {
     marginBottom: theme.spacing(2),
     marginTop: theme.spacing(2),
+    backgroundColor: '#333',
   },
   media: {
     height: 180,
