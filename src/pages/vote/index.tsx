@@ -5,7 +5,7 @@ import TinderCard from 'react-tinder-card'
 import { useQuery } from '@apollo/client'
 
 import { getAllSubmissions_submissionMany, getAllSubmissions } from '../../graphql/types/getAllSubmissions'
-import { QUERY_ALL_Submissions } from './queries'
+import { QUERY_ALL_Submissions } from '../../graphql/queries'
 
 import bImage from '../../assets/images/6.jpg'
 import Typography from '@material-ui/core/Typography'
@@ -35,7 +35,6 @@ const db = [
 ]
 
 const alreadyRemoved: any = []
-let charactersState = db // This fixes issues with updating characters state forcing it to use the current state and not the state that was active when the card was created.
 
 export default function Vote(): ReactElement {
   const { data, loading } = useQuery<getAllSubmissions>(QUERY_ALL_Submissions, {
@@ -43,13 +42,15 @@ export default function Vote(): ReactElement {
       console.log(err)
     },
     onCompleted: subData => {
-      console.log(subData)
+      console.log(subData.submissionMany)
 
-      // subData && setSubmissions(subData.submissionMany)
+      subData && setCharacters(subData.submissionMany)
+      subData && setCharactersState(subData.submissionMany)
     },
   })
   const classes = useStyles()
-  const [characters, setCharacters] = useState(db)
+  const [characters, setCharacters] = useState<(getAllSubmissions_submissionMany | null)[] | null>([])
+  const [charactersState, setCharactersState] = useState<(getAllSubmissions_submissionMany | null)[] | null>([])
   const [lastDirection, setLastDirection] = useState()
 
   const childRefs: any = useMemo(
@@ -68,53 +69,62 @@ export default function Vote(): ReactElement {
 
   const outOfFrame = (name: any) => {
     console.log(name + ' left the screen!')
-    charactersState = charactersState.filter(character => character.name !== name)
+    setCharactersState(charactersState ? charactersState.filter(character => character!.name !== name) : [])
     setCharacters(charactersState)
   }
 
   const swipe = (dir: any) => {
-    const cardsLeft = characters.filter(person => !alreadyRemoved.includes(person.name))
-    if (cardsLeft.length) {
-      const toBeRemoved = cardsLeft[cardsLeft.length - 1].name // Find the card object to be removed
-      const index = db.map(person => person.name).indexOf(toBeRemoved) // Find the index of which to make the reference to
-      alreadyRemoved.push(toBeRemoved) // Make sure the next card gets removed next time if this card do not have time to exit the screen
-      childRefs[index].current.swipe(dir) // Swipe the card!
+    if (characters) {
+      const cardsLeft = characters.filter(entry => alreadyRemoved.includes(entry!.name))
+      // if (cardsLeft && cardsLeft.length) {
+      //   const toBeRemoved = cardsLeft[cardsLeft.length - 1].name // Find the card object to be removed
+      //   const index = db.map(entry => entry.name).indexOf(toBeRemoved) // Find the index of which to make the reference to
+      //   alreadyRemoved.push(toBeRemoved) // Make sure the next card gets removed next time if this card do not have time to exit the screen
+      //   childRefs[index].current.swipe(dir) // Swipe the card!
+      // }
     }
   }
+  if (loading || !data || !charactersState) return <div className="spin"></div>
 
   return (
     <div className={classes.root}>
-      <Typography variant="h1" color="initial">
+      <Typography variant="h3" color="initial">
         Which bugs do you like?
       </Typography>
 
       <div className={classes.cardContainer}>
-        {characters.map((character, index) => (
-          <div className={classes.swipe}>
-            <TinderCard
-              ref={childRefs[index]}
-              key={character.name}
-              onSwipe={dir => swiped(dir, character.name)}
-              onCardLeftScreen={() => outOfFrame(character.name)}
-            >
-              <div style={{ backgroundImage: `url(${bImage})` }} className={classes.card}>
-                <h3 style={{ color: 'black' }}>{character.name}</h3>
-              </div>
-            </TinderCard>
-          </div>
-        ))}
+        {characters &&
+          characters.map((character, index) => (
+            <div key={character!.name} className={classes.swipe}>
+              <TinderCard
+                ref={childRefs[index]}
+                key={character!.name}
+                onSwipe={dir => swiped(dir, character!.name)}
+                onCardLeftScreen={() => outOfFrame(character!.name)}
+              >
+                <div style={{ backgroundImage: `url(${character!.pictureLink})` }} className={classes.card}>
+                  <Typography variant="h3" className={classes.textTop}>
+                    {character!.name}
+                  </Typography>
+                  <Typography variant="h6" className={classes.textBottom}>
+                    {character!.poem}
+                  </Typography>
+                </div>
+              </TinderCard>
+            </div>
+          ))}
       </div>
-      <div className={classes.buttons}>
-        <Button onClick={() => swipe('left')}>Swipe left!</Button>
-        <Button onClick={() => swipe('right')}>Swipe right!</Button>
-      </div>
+      {/* <div className={classes.buttons}>
+        <Button onClick={() => swipe('left')}>Didn't Like 👎</Button>
+        <Button onClick={() => swipe('right')}>Like 👍</Button>
+      </div> */}
       {lastDirection ? (
-        <h2 key={lastDirection} className="infoText">
-          You swiped {lastDirection}
-        </h2>
+        <Typography variant="h3" key={lastDirection}>
+          {lastDirection === 'left' ? 'It was not so good' : 'I liked it too'}
+        </Typography>
       ) : (
-        <Typography variant="h3" color="initial">
-          Swipe a card or press a button to get started!
+        <Typography variant="h2" color="initial">
+          🤮 ⬅️ {'- - -'} ➡️ ❤️
         </Typography>
       )}
     </div>
