@@ -15,14 +15,15 @@ const Landing = lazy(() => import('./pages/landing'))
 const Capture = lazy(() => import('./pages/capture'))
 const SelectGame = lazy(() => import('./pages/selectGame'))
 const SelectGameMode = lazy(() => import('./pages/selectGameMode'))
-const SpaceX = lazy(() => import('./pages/spaceX'))
-const Adjudication = lazy(() => import('./pages/adjudication'))
-const ChooseGame = lazy(() => import('./pages/adjudication/chooseGame'))
-const CompetitionOverview = lazy(() => import('./pages/adjudication/competitionOverview'))
+// const SpaceX = lazy(() => import('./pages/spaceX'))
+// const Adjudication = lazy(() => import('./pages/adjudication'))
+// const ChooseGame = lazy(() => import('./pages/adjudication/chooseGame'))
+// const CompetitionOverview = lazy(() => import('./pages/adjudication/competitionOverview'))
+// const Submissions = lazy(() => import('./pages/adjudication/submissions'))
 const EnterCompetition = lazy(() => import('./pages/adjudication/enterCompetition'))
-const Submissions = lazy(() => import('./pages/adjudication/submissions'))
 const MetaData = lazy(() => import('./pages/write-metadata'))
 const InfoScreen = lazy(() => import('./pages/info-screen'))
+const GqlTest = lazy(() => import('./pages/gqltest'))
 const Vote = lazy(() => import('./pages/vote'))
 
 const RouterPage = (props: { pageComponent: ReactElement } & RouteComponentProps) => props.pageComponent
@@ -39,16 +40,17 @@ const Application = () => {
               <RouterPage path="/" pageComponent={<Landing />} />
               <RouterPage path="/login" pageComponent={<Login />} />
               <RouterPage path="/capture" pageComponent={<Capture />} />
-              <RouterPage path="/spacex" pageComponent={<SpaceX />} />
+              <RouterPage path="/adjudication/enter-competition" pageComponent={<EnterCompetition />} />
+              {/* <RouterPage path="/spacex" pageComponent={<SpaceX />} />
               <RouterPage path="/adjudication/submissions" pageComponent={<Submissions />} />
               <RouterPage path="/adjudication/chooseGame" pageComponent={<ChooseGame />} />
               <RouterPage path="/adjudication/competition-overview" pageComponent={<CompetitionOverview />} />
-              <RouterPage path="/adjudication/enter-competition" pageComponent={<EnterCompetition />} />
-              <RouterPage path="/adjudication" pageComponent={<Adjudication />} />
+              <RouterPage path="/adjudication" pageComponent={<Adjudication />} /> */}
               <RouterPage path="/write-metadata" pageComponent={<MetaData />} />
               <RouterPage path="/select-game" pageComponent={<SelectGame />} />
               <RouterPage path="/info-screen" pageComponent={<InfoScreen />} />
               <RouterPage path="/select-game-mode" pageComponent={<SelectGameMode />} />
+              <RouterPage path="/gql" pageComponent={<GqlTest />} />
               <RouterPage path="/vote" pageComponent={<Vote />} />
               <RouterPage default pageComponent={<NotFound />} />
             </Router>

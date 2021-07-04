@@ -27,8 +27,8 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "codegen": "apollo client:codegen --target=typescript --addTypename --endpoint=https://api.spacex.land/graphql/ --outputFlat=src/graphql/types",
-    "schemagen": "apollo client:download-schema --endpoint=https://api.spacex.land/graphql/ schema.json",
+    "codegen": "apollo client:codegen --target=typescript --addTypename --endpoint=https://interspecies.ddns.net:3000/graphql --outputFlat=src/graphql/types",
+    "schemagen": "apollo client:download-schema --endpoint=https://interspecies.ddns.net:3000/graphql schema.json",
     "pregqlPull": "rm -rf src/graphql/types schema.json",
     "gqlPull": "npm run codegen && npm run schemagen"
   },
