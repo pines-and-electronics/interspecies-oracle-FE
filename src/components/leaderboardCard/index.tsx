@@ -5,13 +5,13 @@ import useStyles from './styles';
 type SubmisionCardProps = {
   image: string,
   name: string,
-  type: string,
-  weight: number,
+  description: string,
   likes: number,
-  rank: number
+  rank: number,
+  poem: string
 }
 
-export default function LeaderboardCard({image, name, type, weight, likes, rank}:SubmisionCardProps): ReactElement {
+export default function LeaderboardCard({image, name, description, likes, rank, poem}:SubmisionCardProps): ReactElement {
   const classes = useStyles()
 
   return (
@@ -22,13 +22,12 @@ export default function LeaderboardCard({image, name, type, weight, likes, rank}
       <Container className={classes.contentContainer}>
         <CardContent className={classes.cardContent}>
           <Typography variant="h4" color='textSecondary'>{name}</Typography>
-          <Typography variant="body1" color='textSecondary'>{type}</Typography>
-          <Typography variant="body1" color='textSecondary'>{weight} kg</Typography>
+          <Typography variant="body1" color='textSecondary'>{description}</Typography>
         </CardContent>
       </Container>
       <Container className={`${classes.poemContainer} ${classes.center}`}>
         <div>
-          {"Roses are red\nViolets are blue\nI will drink your milkshake\nIf you let me through"}
+          {poem}
         </div>
       </Container>
       <Container className={`${classes.rankContainer} ${classes.center}`}>
