@@ -1,5 +1,6 @@
 import { useQuery } from '@apollo/client'
-import { Button, Grid } from '@material-ui/core'
+import { Button, Grid, Typography } from '@material-ui/core'
+import moment from 'moment'
 import React, { ReactElement, useState } from 'react'
 import SubmissionCard from '../../../components/submissionCard'
 import { QUERY_ALL_Submissions } from '../../../graphql/queries'
@@ -60,10 +61,11 @@ export default function CompetitionOverview(): ReactElement {
                   image={bug?.pictureLink || ''}
                   name={bug?.name || ''}
                   description={bug?.description || ''}
-                >
-                  <Button variant="outlined" color="primary">
-                    Stake and Enter!
-                  </Button>
+                > 
+                  <div style={{textAlign: 'center'}}>
+                    <Typography variant="body1" color='textSecondary'>Entered contest on</Typography>
+                    <Typography variant="body1" color='textSecondary'>{moment(bug?.createdAt).format("DD MMM 21, hh:mm")}</Typography>
+                  </div>
                 </SubmissionCard>
               </Grid>
             )

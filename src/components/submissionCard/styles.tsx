@@ -9,7 +9,7 @@ const useStyles = makeStyles((theme: Theme) => ({
     display: 'flex',
     flexDirection: 'row',
     padding: 24,
-    height: '20em',
+    height: '24em',
     color: theme.palette.grey[700]
   },
   media: {
@@ -18,7 +18,6 @@ const useStyles = makeStyles((theme: Theme) => ({
     backgroundSize: '100%',
   },
   cardContent: {
-    width: 250,
     margin: 16
   },
   childContainer: {
