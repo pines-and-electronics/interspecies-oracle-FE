@@ -17,7 +17,7 @@ const SelectGame = lazy(() => import('./pages/selectGame'))
 const SelectGameMode = lazy(() => import('./pages/selectGameMode'))
 // const SpaceX = lazy(() => import('./pages/spaceX'))
 // const Adjudication = lazy(() => import('./pages/adjudication'))
-// const ChooseGame = lazy(() => import('./pages/adjudication/chooseGame'))
+const ChooseGame = lazy(() => import('./pages/adjudication/chooseGame'))
 // const CompetitionOverview = lazy(() => import('./pages/adjudication/competitionOverview'))
 // const Submissions = lazy(() => import('./pages/adjudication/submissions'))
 const EnterCompetition = lazy(() => import('./pages/adjudication/enterCompetition'))
@@ -41,6 +41,7 @@ const Application = () => {
               <RouterPage path="/login" pageComponent={<Login />} />
               <RouterPage path="/capture" pageComponent={<Capture />} />
               <RouterPage path="/adjudication/enter-competition" pageComponent={<EnterCompetition />} />
+              <RouterPage path="/adjudication/chooseGame" pageComponent={<ChooseGame />} />
               {/* <RouterPage path="/spacex" pageComponent={<SpaceX />} />
               <RouterPage path="/adjudication/submissions" pageComponent={<Submissions />} />
               <RouterPage path="/adjudication/chooseGame" pageComponent={<ChooseGame />} />
