@@ -19,10 +19,18 @@ export default function CompetitionOverview(): ReactElement {
     },
   })
   const navigate = useNavigate()
+  const classes = useStyles()
 
   const [submissions, setSubmissions] = useState<(getAllSubmissions_submissionMany | null)[] | null>([])
-  const classes = useStyles()
+
   if (loading || !data || !submissions) return <div className="spin"></div>
+
+  // let sortedSubmissions = 
+  const sortedSubmissions = submissions.slice().sort((a, b) => {
+    return a!.votes! > b!.votes! ? -1 : 1
+  })
+  console.log(sortedSubmissions)
+  
   return (
     <div className={classes.root}>
 
@@ -36,7 +44,7 @@ export default function CompetitionOverview(): ReactElement {
       {/* <hr className={classes.hr} /> */}
 
       <Grid container className={classes.root} spacing={2}>
-        {submissions.map((bug, i) => {
+        {sortedSubmissions.map((bug, i) => {
           return (
             <Grid item xs={12} style={{margin: "16px 0"}}>
               <LeaderboardCard image={bug?.pictureLink || ''} name={bug?.name || ''} description={bug?.description || ''} rank={i} likes={bug?.votes || 0} poem={bug?.poem || 'No poem written'}/>
