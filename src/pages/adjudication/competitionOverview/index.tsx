@@ -47,7 +47,7 @@ export default function CompetitionOverview(): ReactElement {
         {sortedSubmissions.map((bug, i) => {
           return (
             <Grid item xs={12} style={{margin: "16px 0"}}>
-              <LeaderboardCard image={bug?.pictureLink || ''} name={bug?.name || ''} description={bug?.description || ''} rank={i} likes={bug?.votes || 0} poem={bug?.poem || 'No poem written'}/>
+              <LeaderboardCard image={bug?.pictureLink || ''} name={bug?.name || ''} description={bug?.description || ''} rank={i+1} likes={bug?.votes || 0} poem={bug?.poem || 'No poem written'}/>
             </Grid>
           )
         })}
