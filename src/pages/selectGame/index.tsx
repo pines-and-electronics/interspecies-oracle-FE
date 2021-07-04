@@ -6,7 +6,9 @@ import Select from '@material-ui/core/Select'
 import { useNavigate } from '@reach/router'
 import React, { ReactElement } from 'react'
 import useStyles from './styles'
-import { ReactComponent as BugIcon } from './find_bug.svg'
+// import { ReactComponent as BugIcon } from './find_bug.svg'
+// import { ReactComponent as BugIcon } from './kingbug.png'
+import BugIcon from './kingbug.png'
 import { ReactComponent as MushroomIcon } from './find_mushroom.svg'
 import { ReactComponent as CleanupIcon } from './cleanup.svg'
 
@@ -38,9 +40,10 @@ export default function SelectGame(): ReactElement {
         <div className={classes.gamesHolder}>
           <div className={classes.buttonHolder}>
             <Button variant="contained" className={classes.button} onClick={() => handleChange('find-bug')}>
-              <BugIcon className={classes.buttonIcon}/>
+              {/* <BugIcon className={classes.buttonIcon}/> */}
+              <img src={BugIcon} alt="Logo" width="100" height="100" />;
             </Button>
-            <p style={{color: 'white', fontSize: '120%'}}>Find a Bug</p>
+            <p style={{color: 'white', fontSize: '120%'}}>King Of Bugs</p>
           </div>
           <div className={classes.buttonHolder}>
             <Button variant="contained" className={classes.button} onClick={() => handleChange("find-mushroom")}>

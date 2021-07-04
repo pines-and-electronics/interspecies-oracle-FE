@@ -24,7 +24,7 @@ export default function Login(): ReactElement {
     network: "mainnet", // optional
     cacheProvider: true, // optional
     providerOptions: {
-      
+
     } // required
   });
 
@@ -70,6 +70,7 @@ export default function Login(): ReactElement {
   const onSubmit = () => {
     console.log(userId, password)
     setSignedIn(true)
+    navigate('/adjudication/chooseGame')
   }
 
   useEffect(()=> {
@@ -81,22 +82,28 @@ export default function Login(): ReactElement {
   return (
     <div className={classes.root}>
       <div className={classes.form}>
+        <br/>
         <div>
           {injectedProvider && <Button onClick={logoutOfWeb3Modal}>Disconnect Metamask</Button>}
         </div>
+        <br/>
         { address && <div>Address: {address}</div>}
         {/* <Metamask3D /> */}
+        <br/>
         <div className={classes.logoWrapper}>
           <img src={metamaskLogo} className={classes.logo}/>
         </div>
+        <br/>
         {
           !injectedProvider ?  <Button onClick={loadWeb3Modal}>Sign in to Metamask</Button> : null
         }
+        <br/>
         <TextField {...userIDProps} />
+        <br/>
         <TextField {...passwordProps} />
         <Button onClick={onSubmit}>Sign In</Button>
-        
-        
+
+
       </div>
     </div>
   )
