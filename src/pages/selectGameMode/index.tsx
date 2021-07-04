@@ -26,7 +26,7 @@ export default function SelectGameMode(): ReactElement {
 
   const onSwipeVote = () => {
     console.log('Go to Swipe and Vote')
-    //navigate()
+    navigate('/vote')
   }
 
   // const onAdjudication = () => {
