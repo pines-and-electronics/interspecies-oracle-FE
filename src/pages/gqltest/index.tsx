@@ -3,7 +3,7 @@ import { Card, CardActionArea, CardContent, CardMedia, Typography } from '@mater
 import React, { ReactElement, useState } from 'react'
 
 import { getAllSubmissions_submissionMany, getAllSubmissions } from '../../graphql/types/getAllSubmissions'
-import { QUERY_ALL_Submissions } from './queries'
+import { QUERY_ALL_Submissions } from '../../graphql/queries'
 import useStyles from './styles'
 
 export default function NotFound(): ReactElement {

@@ -1,9 +1,15 @@
 import React, { ReactElement, useMemo, useState } from 'react'
-// import { Box, Button, Typography, Slider } from '@material-ui/core'
 import useStyles from './styles'
 import TinderCard from 'react-tinder-card'
 
+import { useQuery } from '@apollo/client'
+
+import { getAllSubmissions_submissionMany, getAllSubmissions } from '../../graphql/types/getAllSubmissions'
+import { QUERY_ALL_Submissions } from './queries'
+
 import bImage from '../../assets/images/6.jpg'
+import Typography from '@material-ui/core/Typography'
+import { Button } from '@material-ui/core'
 
 const db = [
   {
@@ -32,6 +38,16 @@ const alreadyRemoved: any = []
 let charactersState = db // This fixes issues with updating characters state forcing it to use the current state and not the state that was active when the card was created.
 
 export default function Vote(): ReactElement {
+  const { data, loading } = useQuery<getAllSubmissions>(QUERY_ALL_Submissions, {
+    onError: err => {
+      console.log(err)
+    },
+    onCompleted: subData => {
+      console.log(subData)
+
+      // subData && setSubmissions(subData.submissionMany)
+    },
+  })
   const classes = useStyles()
   const [characters, setCharacters] = useState(db)
   const [lastDirection, setLastDirection] = useState()
@@ -68,9 +84,10 @@ export default function Vote(): ReactElement {
 
   return (
     <div className={classes.root}>
-      <link href="https://fonts.googleapis.com/css?family=Damion&display=swap" rel="stylesheet" />
-      <link href="https://fonts.googleapis.com/css?family=Alatsi&display=swap" rel="stylesheet" />
-      <h1>React Tinder Card</h1>
+      <Typography variant="h1" color="initial">
+        Which bugs do you like?
+      </Typography>
+
       <div className={classes.cardContainer}>
         {characters.map((character, index) => (
           <div className={classes.swipe}>
@@ -80,7 +97,7 @@ export default function Vote(): ReactElement {
               onSwipe={dir => swiped(dir, character.name)}
               onCardLeftScreen={() => outOfFrame(character.name)}
             >
-              <div style={{ backgroundImage: `url(${bImage})`}} className={classes.card}>
+              <div style={{ backgroundImage: `url(${bImage})` }} className={classes.card}>
                 <h3 style={{ color: 'black' }}>{character.name}</h3>
               </div>
             </TinderCard>
@@ -88,15 +105,17 @@ export default function Vote(): ReactElement {
         ))}
       </div>
       <div className={classes.buttons}>
-        <button onClick={() => swipe('left')}>Swipe left!</button>
-        <button onClick={() => swipe('right')}>Swipe right!</button>
+        <Button onClick={() => swipe('left')}>Swipe left!</Button>
+        <Button onClick={() => swipe('right')}>Swipe right!</Button>
       </div>
       {lastDirection ? (
         <h2 key={lastDirection} className="infoText">
           You swiped {lastDirection}
         </h2>
       ) : (
-        <h2 className="infoText">Swipe a card or press a button to get started!</h2>
+        <Typography variant="h3" color="initial">
+          Swipe a card or press a button to get started!
+        </Typography>
       )}
     </div>
   )

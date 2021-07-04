@@ -1,7 +1,7 @@
 import gql from 'graphql-tag'
 
 export const QUERY_ALL_Submissions = gql`
-  query getAllSubmissions {
+  query getAllSortedSubmissions {
     submissionMany {
       name
       gameID

@@ -24,7 +24,7 @@ const useStyles = makeStyles((theme: Theme) => ({
     display: 'none',
   },
   swipe: {
-    position: 'absolute'
+    position: 'absolute',
   },
   cardContainer: {
     width: '100%',
@@ -34,39 +34,27 @@ const useStyles = makeStyles((theme: Theme) => ({
     flexDirection: 'column',
     alignItems: 'center',
     justifyContent: 'center',
-    display: 'flex'
+    display: 'flex',
   },
   card: {
-      position: 'relative',
-      backgroundColor: '#fff', 
-      width: '260px',
-      maxWidth: '260px',
-      height: '300px',
-      boxShadow: '0px 0px 60px 0px rgba(0,0,0,0.30)',
-      borderRadius: '20px',
-      backgroundSize: 'cover',
-      backgroundPosition: 'center'
+    position: 'relative',
+    backgroundColor: '#fff',
+    width: '260px',
+    maxWidth: '260px',
+    height: '300px',
+    boxShadow: '0px 0px 60px 0px rgba(0,0,0,0.30)',
+    borderRadius: '20px',
+    backgroundSize: 'cover',
+    backgroundPosition: 'center',
   },
   buttons: {
-    margin: '20px',
+    marginTop: '30px',
+    width: '30em',
+    margin: 'auto',
     display: 'flex',
     alignItems: 'center',
-    justifyContent: 'center',
+    justifyContent: 'space-between',
   },
-   button: {
-      flexShrink: 0,
-      padding: '10px',
-      borderRadius: '15px',
-      border: 'none',
-      color: '#fff',
-      fontSize: '18px',
-      backgroundColor: '#9198e5',
-      transition: '200ms',
-      margin: '0 10px',
-      fontWeight: 'bolder',
-      width: '160px',
-      boxShadow: '0px 0px 30px 0px rgba(0,0,0,0.10)'
-  }
 }))
 
 export default useStyles
