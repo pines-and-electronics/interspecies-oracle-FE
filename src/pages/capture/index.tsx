@@ -1,13 +1,16 @@
 import { Button, IconButton, Slider, Typography } from '@material-ui/core'
 import { DeleteSweep, PhotoCameraRounded, SendOutlined } from '@material-ui/icons'
 import { useNavigate } from '@reach/router'
+import { logger } from 'ethers'
 import React, { ReactElement, useState } from 'react'
 import CanvasDraw from 'react-canvas-draw'
+import { fileUploadUrl } from '../../config'
 import useStyles from './styles'
 
 export default function Capture(): ReactElement {
   const classes = useStyles()
   const [source, setSource] = useState('')
+  const [file, setFile] = useState<string | Blob | null>()
   const [brushSize, setBrushSize] = useState<number | string | Array<number | string>>(10)
 
   const navigate = useNavigate()
@@ -19,14 +22,34 @@ export default function Capture(): ReactElement {
 
   let canvasRef: CanvasDraw | null
 
+  const handleUploadFile = async () => {
+    if (file) {
+      const data = new FormData()
+      data.append('file', file)
+      return await fetch(fileUploadUrl, {
+        method: 'POST',
+        headers: {
+          enctype: 'multipart/form-data',
+        },
+        body: data,
+      })
+        .then(response => response.json())
+        .then(data => data.url)
+    }
+  }
+
   const handleCapture = (target: EventTarget & HTMLInputElement) => {
     setSource('')
+    setFile(null)
     if (target.files) {
       if (target.files.length !== 0) {
         const file = target.files[0]
         const newUrl = URL.createObjectURL(file)
 
-        setTimeout(() => setSource(newUrl), 100)
+        setTimeout(() => {
+          setSource(newUrl)
+          setFile(file)
+        }, 100)
         console.log(newUrl)
       }
     }
@@ -102,15 +125,16 @@ export default function Capture(): ReactElement {
       </label>
       <Button
         aria-label="upload picture"
-        variant="outlined"
         component="span"
+        variant="outlined"
+        color="secondary"
         startIcon={<SendOutlined />}
         disabled={!source}
         style={{ marginLeft: '1em' }}
-        onClick={() => {
-          const data = canvasRef && canvasRef.getSaveData()
-          console.log(data)
-
+        onClick={async () => {
+          // const data = canvasRef && canvasRef.getSaveData()
+          const data = await handleUploadFile()
+          window.localStorage.setItem('imageUrl', data)
           navigate('/write-metadata')
         }}
       >

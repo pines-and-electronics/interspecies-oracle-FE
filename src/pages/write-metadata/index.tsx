@@ -1,11 +1,8 @@
 import { Button, TextField } from '@material-ui/core'
+import { useNavigate } from '@reach/router'
 import React, { ReactElement } from 'react'
 import { useTextField } from '../../components'
 import useStyles from './styles'
-import { useNavigate } from '@reach/router'
-
-//TODO: Temp!
-import Photo from './mrsquishy.png'
 import TribeLogo from './tribe.png'
 
 export default function Login(): ReactElement {
@@ -31,7 +28,7 @@ export default function Login(): ReactElement {
             <img className={classes.tribeLogo} src={TribeLogo} alt="logo" />
           </div>
 
-          <img className={classes.photo} src={Photo} alt="logo" />
+          <img className={classes.photo} src={window.localStorage.getItem('imageUrl') || ''} alt="logo" />
         </div>
 
         {/* Form entry */}

@@ -33,4 +33,4 @@ export const info: SimplePaletteColorOptions = {
   main: '#3CC13B',
   light: lighten('#3CC13B', 0.9),
 }
-export const primaryGradient = `radial-gradient(390.48% 55.17% at 50% 50%, #FF9595 0%, #2B8C86 100%)`
+export const primaryGradient = `radial-gradient(390.48% 55.17% at 50% 50%, ${primary.main} 0%, ${secondary.main} 100%)`
